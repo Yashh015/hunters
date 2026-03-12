@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suggest a Spot — HUNTERS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --red: #e63f1e;
+      --red-bright: #ff5230;
+      --bg: #080808;
+      --bg1: #0d0d0d;
+      --bg2: #111111;
+      --bg3: #161616;
+      --bg4: #1c1c1c;
+      --ink: #f2ede6;
+      --ink60: rgba(242, 237, 230, .6);
+      --ink30: rgba(242, 237, 230, .3);
+      --ink10: rgba(242, 237, 230, .1);
+      --ink06: rgba(242, 237, 230, .06);
+      --green-bg: #0a1f14;
+      --green-acc: #3d8c7c;
+      --r-sm: 12px;
+      --r-md: 18px;
+      --r-lg: 24px;
+      --r-xl: 32px;
+      --ease-out: cubic-bezier(.22, 1, .36, 1);
+      --spring: cubic-bezier(.34, 1.4, .64, 1)
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased
+    }
+
+    body {
+      background: #050505;
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    img {
+      display: block
+    }
+
+    ::selection {
+      background: var(--red);
+      color: #fff
+    }
+
+    #grain {
+      position: fixed;
+      inset: 0;
+      z-index: 8998;
+      pointer-events: none;
+      opacity: .28;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='.06'/%3E%3C/svg%3E");
+      animation: grainShift 8s steps(1) infinite
+    }
+
+    @keyframes grainShift {
+      0% {
+        background-position: 0 0
+      }
+
+      20% {
+        background-position: -50px 30px
+      }
+
+      40% {
+        background-position: 80px -20px
+      }
+
+      60% {
+        background-position: -30px 60px
+      }
+
+      80% {
+        background-position: 50px -50px
+      }
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 700;
+      padding: 14px 20px;
+      pointer-events: none;
+      animation: fromTop .7s var(--ease-out) both
+    }
+
+    @keyframes fromTop {
+      from {
+        opacity: 0;
+        transform: translateY(-16px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .nav-pill {
+      pointer-events: all;
+      max-width: 860px;
+      margin: 0 auto;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px 0 16px;
+      background: rgba(12, 11, 10, .88);
+      backdrop-filter: blur(28px) saturate(180%);
+      -webkit-backdrop-filter: blur(28px) saturate(180%);
+      border: 1px solid rgba(242, 237, 230, .09);
+      border-radius: 100px;
+      box-shadow: 0 2px 0 rgba(255, 255, 255, .04) inset, 0 8px 32px rgba(0, 0, 0, .55);
+      transition: border-color .3s, box-shadow .3s
+    }
+
+    .n-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-shrink: 0
+    }
+
+    .n-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--red);
+      overflow: hidden;
+      flex-shrink: 0
+    }
+
+    .n-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 18%
+    }
+
+    .n-name {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: .1em;
+      color: var(--ink)
+    }
+
+    .n-links {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      list-style: none;
+      margin: 0 auto;
+      padding: 0 8px
+    }
+
+    .n-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(242, 237, 230, .45);
+      padding: 6px 12px;
+      border-radius: 100px;
+      transition: color .2s, background .2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap
+    }
+
+    .n-links a:hover,
+    .n-links a.active {
+      color: var(--ink);
+      background: rgba(242, 237, 230, .06)
+    }
+
+    .n-divider {
+      width: 1px;
+      height: 20px;
+      background: rgba(242, 237, 230, .1);
+      margin: 0 6px;
+      flex-shrink: 0
+    }
+
+    .n-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0
+    }
+
+    .n-ghost {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: rgba(242, 237, 230, .55);
+      padding: 7px 15px;
+      border-radius: 100px;
+      border: 1px solid rgba(242, 237, 230, .12);
+      transition: border-color .2s, color .2s, background .2s;
+      white-space: nowrap
+    }
+
+    .n-ghost:hover {
+      border-color: rgba(242, 237, 230, .22);
+      color: var(--ink);
+      background: rgba(242, 237, 230, .04)
+    }
+
+    .n-cta {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 100px;
+      background: var(--red);
+      border: 1px solid rgba(255, 255, 255, .08);
+      box-shadow: 0 2px 12px rgba(230, 63, 30, .35);
+      transition: background .2s, transform .15s var(--spring), box-shadow .3s;
+      white-space: nowrap
+    }
+
+    .n-cta:hover {
+      background: var(--red-bright);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(230, 63, 30, .5)
+    }
+
+    .n-menu-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: var(--ink06);
+      border: 1px solid var(--ink10);
+      border-radius: 9px;
+      cursor: pointer;
+      padding: 8px
+    }
+
+    .n-menu-btn span {
+      display: block;
+      height: 1.5px;
+      background: rgba(242, 237, 230, .6);
+      border-radius: 2px;
+      transition: transform .25s var(--ease-out), opacity .2s
+    }
+
+    .n-mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 699;
+      background: rgba(5, 5, 5, .97);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 80px 24px 40px
+    }
+
+    .n-mobile-menu.open {
+      display: flex
+    }
+
+    .n-mobile-menu a {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 32px;
+      color: rgba(242, 237, 230, .3);
+      letter-spacing: -.02em;
+      padding: 12px 0;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid rgba(242, 237, 230, .06);
+      transition: color .2s
+    }
+
+    .n-mobile-menu a:hover {
+      color: var(--ink)
+    }
+
+    .n-mobile-menu .nm-cta {
+      margin-top: 24px;
+      background: var(--red);
+      color: #fff !important;
+      border-radius: 100px;
+      padding: 16px 40px !important;
+      font-size: 16px !important;
+      border-bottom: none !important;
+      width: auto !important
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 44px
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px)
+      }
+
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    .rev {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s var(--ease-out), transform .6s var(--ease-out)
+    }
+
+    .rev.in {
+      opacity: 1;
+      transform: none
+    }
+
+    /* PAGE */
+    .page-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 44px
+    }
+
+    .pg-hero {
+      padding: 140px 0 60px;
+      text-align: center;
+      position: relative
+    }
+
+    .pg-glow {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(230, 63, 30, .1) 0%, transparent 65%);
+      pointer-events: none
+    }
+
+    .pg-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(230, 63, 30, .07);
+      border: 1px solid rgba(230, 63, 30, .18);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 24px;
+      animation: fadeUp .7s var(--ease-out) .1s both
+    }
+
+    .pg-h {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: .95;
+      letter-spacing: -.03em;
+      margin-bottom: 16px;
+      animation: fadeUp .8s var(--ease-out) .2s both
+    }
+
+    .pg-h em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--red)
+    }
+
+    .pg-sub {
+      font-size: 16px;
+      color: var(--ink30);
+      line-height: 1.85;
+      animation: fadeUp .7s var(--ease-out) .3s both
+    }
+
+    /* STANDARDS BOX */
+    .standards {
+      background: var(--green-bg);
+      border: 1px solid rgba(61, 140, 124, .2);
+      border-radius: var(--r-xl);
+      padding: 36px;
+      margin: 48px 0 40px
+    }
+
+    .std-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--green-acc);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .std-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .std-item {
+      display: flex;
+      gap: 12px;
+      font-size: 13.5px;
+      color: var(--ink30);
+      line-height: 1.7
+    }
+
+    .std-item::before {
+      content: '✓';
+      color: var(--green-acc);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px
+    }
+
+    /* TYPE TOGGLE */
+    .type-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 32px
+    }
+
+    .type-btn {
+      background: var(--bg2);
+      border: 1px solid var(--ink06);
+      border-radius: var(--r-md);
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .2s, background .2s
+    }
+
+    .type-btn:hover {
+      border-color: var(--ink10)
+    }
+
+    .type-btn.selected {
+      border-color: var(--red);
+      background: rgba(230, 63, 30, .06)
+    }
+
+    .type-btn input {
+      display: none
+    }
+
+    .type-ico {
+      font-size: 28px;
+      margin-bottom: 8px
+    }
+
+    .type-label {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 4px
+    }
+
+    .type-sub {
+      font-size: 12px;
+      color: var(--ink30)
+    }
+
+    /* FORM */
+    .form-section {
+      margin-bottom: 48px
+    }
+
+    .form-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      color: var(--ink);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--ink06)
+    }
+
+    .field {
+      margin-bottom: 20px
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px
+    }
+
+    label {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink30);
+      margin-bottom: 8px
+    }
+
+    input[type=text],
+    input[type=email],
+    input[type=url],
+    select,
+    textarea {
+      width: 100%;
+      background: var(--bg2);
+      border: 1px solid var(--ink06);
+      border-radius: var(--r-md);
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      -webkit-appearance: none
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(242, 237, 230, .2);
+      box-shadow: 0 0 0 3px rgba(230, 63, 30, .08)
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--ink30)
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+      line-height: 1.65
+    }
+
+    select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(242,237,230,0.3)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center
+    }
+
+    select option {
+      background: var(--bg3)
+    }
+
+    .field-note {
+      font-size: 11.5px;
+      color: var(--ink30);
+      margin-top: 6px;
+      line-height: 1.6
+    }
+
+    /* RATING INPUTS */
+    .rating-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px
+    }
+
+    .rating-field label {
+      margin-bottom: 6px
+    }
+
+    .rating-field input {
+      text-align: center;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 18px
+    }
+
+    /* SUBMIT */
+    .submit-wrap {
+      margin-top: 16px;
+      padding-top: 32px;
+      border-top: 1px solid var(--ink06)
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 18px;
+      border-radius: var(--r-lg);
+      background: var(--red);
+      color: #fff;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      letter-spacing: .03em;
+      border: 1px solid rgba(255, 255, 255, .1);
+      box-shadow: 0 4px 24px rgba(230, 63, 30, .4);
+      cursor: pointer;
+      transition: background .2s, transform .15s var(--spring), box-shadow .3s
+    }
+
+    .submit-btn:hover {
+      background: var(--red-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(230, 63, 30, .55)
+    }
+
+    .submit-note {
+      font-size: 12px;
+      color: var(--ink30);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.7
+    }
+
+    .submit-note strong {
+      color: var(--ink60)
+    }
+
+    /* SUCCESS STATE */
+    .success {
+      display: none;
+      text-align: center;
+      padding: 80px 0
+    }
+
+    .success.show {
+      display: block
+    }
+
+    .success-icon {
+      font-size: 60px;
+      margin-bottom: 24px
+    }
+
+    .success h2 {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--ink);
+      margin-bottom: 12px;
+      letter-spacing: -.02em
+    }
+
+    .success p {
+      font-size: 15px;
+      color: var(--ink30);
+      line-height: 1.8;
+      max-width: 400px;
+      margin: 0 auto 32px
+    }
+
+    .success a {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--red);
+      color: #fff;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: background .2s
+    }
+
+    .success a:hover {
+      background: var(--red-bright)
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg1);
+      padding: 80px 44px 40px;
+      position: relative;
+      overflow: hidden
+    }
+
+    footer::before {
+      content: 'HUNTERS';
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: clamp(80px, 14vw, 180px);
+      letter-spacing: -.04em;
+      color: rgba(242, 237, 230, .025);
+      pointer-events: none;
+      white-space: nowrap;
+      user-select: none
+    }
+
+    .foot-inner {
+      max-width: 1100px;
+      margin: 0 auto
+    }
+
+    .foot-top {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 60px
+    }
+
+    .ft-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px
+    }
+
+    .ft-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: var(--red);
+      overflow: hidden;
+      flex-shrink: 0
+    }
+
+    .ft-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 14%
+    }
+
+    .ft-name {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: .1em;
+      color: var(--ink)
+    }
+
+    .ft-tagline {
+      font-size: 14px;
+      color: var(--ink30);
+      line-height: 1.75;
+      max-width: 260px;
+      margin-bottom: 24px
+    }
+
+    .ft-social {
+      display: flex;
+      gap: 10px
+    }
+
+    .ft-social a {
+      width: 36px;
+      height: 36px;
+      background: var(--bg3);
+      border: 1px solid var(--ink06);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      transition: background .2s, transform .2s var(--spring)
+    }
+
+    .ft-social a:hover {
+      background: var(--bg4);
+      transform: translateY(-2px)
+    }
+
+    .ft-col-head {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink30);
+      margin-bottom: 18px
+    }
+
+    .ft-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px
+    }
+
+    .ft-col ul a {
+      font-size: 14px;
+      color: rgba(242, 237, 230, .35);
+      transition: color .2s
+    }
+
+    .ft-col ul a:hover {
+      color: var(--ink60)
+    }
+
+    .ft-nl-form {
+      display: flex;
+      gap: 8px;
+      margin-top: 4px
+    }
+
+    .ft-nl-input {
+      flex: 1;
+      background: var(--bg3);
+      border: 1px solid var(--ink06);
+      border-radius: 100px;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color .2s
+    }
+
+    .ft-nl-input::placeholder {
+      color: var(--ink30)
+    }
+
+    .ft-nl-input:focus {
+      border-color: rgba(242, 237, 230, .18)
+    }
+
+    .ft-nl-btn {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'Cabinet Grotesk', sans-serif;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .2s
+    }
+
+    .ft-nl-btn:hover {
+      background: var(--red-bright)
+    }
+
+    .ft-nl-note {
+      font-size: 11px;
+      color: rgba(242, 237, 230, .2);
+      margin-top: 10px
+    }
+
+    .foot-divider {
+      height: 1px;
+      background: var(--ink06);
+      margin-bottom: 28px
+    }
+
+    .foot-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px
+    }
+
+    .f-copy {
+      font-size: 12px;
+      color: rgba(242, 237, 230, .18)
+    }
+
+    .foot-bottom-links {
+      display: flex;
+      gap: 20px;
+      list-style: none
+    }
+
+    .foot-bottom-links a {
+      font-size: 12px;
+      color: rgba(242, 237, 230, .18);
+      transition: color .2s
+    }
+
+    .foot-bottom-links a:hover {
+      color: rgba(242, 237, 230, .45)
+    }
+
+    .foot-made {
+      font-size: 12px;
+      color: rgba(242, 237, 230, .18);
+      display: flex;
+      align-items: center;
+      gap: 5px
+    }
+
+    .foot-made span {
+      color: var(--red)
+    }
+
+    @media(max-width:900px) {
+      nav {
+        padding: 12px 16px
+      }
+
+      .nav-pill {
+        padding: 0 6px 0 14px
+      }
+
+      .n-links {
+        display: none
+      }
+
+      .n-divider {
+        display: none
+      }
+
+      .n-ghost {
+        display: none
+      }
+
+      .n-cta {
+        font-size: 12px;
+        padding: 7px 14px
+      }
+
+      .page-inner {
+        padding: 0 20px
+      }
+
+      .field-row {
+        grid-template-columns: 1fr
+      }
+
+      footer {
+        padding: 60px 20px 32px
+      }
+
+      .foot-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding-bottom: 40px
+      }
+
+      .foot-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px
+      }
+    }
+
+    @media(max-width:560px) {
+      nav {
+        padding: 10px 12px
+      }
+
+      .nav-pill {
+        height: 46px;
+        padding: 0 4px 0 12px
+      }
+
+      .n-logo {
+        width: 24px;
+        height: 24px
+      }
+
+      .n-name {
+        font-size: 13px
+      }
+
+      .n-cta {
+        display: none
+      }
+
+      .n-menu-btn {
+        display: flex
+      }
+
+      .page-inner {
+        padding: 0 16px
+      }
+
+      .pg-hero {
+        padding: 110px 0 40px
+      }
+
+      .pg-h {
+        font-size: clamp(36px, 10vw, 56px)
+      }
+
+      .type-toggle {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .rating-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      footer {
+        padding: 48px 16px 28px
+      }
+
+      .foot-top {
+        grid-template-columns: 1fr;
+        gap: 32px
+      }
+
+      .ft-nl-form {
+        flex-direction: column
+      }
+
+      .ft-nl-input,
+      .ft-nl-btn {
+        border-radius: 10px
+      }
+
+      .ft-nl-btn {
+        width: 100%;
+        padding: 12px
+      }
+
+      .foot-bottom-links {
+        flex-wrap: wrap;
+        gap: 12px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="grain"></div>
+
+  <nav>
+    <div class="nav-pill">
+      <a href="index.html" class="n-brand">
+        <div class="n-logo"><img src="/logo.png" alt="HUNTERS"></div>
+        <span class="n-name">HUNTERS</span>
+      </a>
+      <ul class="n-links">
+        <li><a href="cafes.html">Cafes</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="suggest.html" class="active">Suggest</a></li>
+      </ul>
+      <div class="n-right">
+        <div class="n-divider"></div>
+        <a href="index.html" class="n-ghost">← Back Home</a>
+        <button class="n-menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="n-mobile-menu" id="mobileMenu">
+    <a href="cafes.html">Cafes</a><a href="events.html">Events</a><a href="about.html">About</a><a
+      href="suggest.html">Suggest</a>
+    <a href="index.html" class="nm-cta">← Back Home</a>
+  </div>
+
+  <div class="page-inner">
+    <div class="pg-hero">
+      <div class="pg-glow"></div>
+      <div class="pg-badge">Know something we don't?</div>
+      <h1 class="pg-h">Suggest<br><em>a spot.</em></h1>
+      <p class="pg-sub">Found a café or event worth talking about? Tell us. We'll visit it ourselves before anything
+        goes live.</p>
+    </div>
+
+    <!-- STANDARDS -->
+    <div class="standards rev">
+      <div class="std-title">🐊 Our review process</div>
+      <div class="std-list">
+        <div class="std-item">Every submission gets reviewed by our team personally — we visit the place before listing
+          it.</div>
+        <div class="std-item">We only list what we'd recommend to someone we actually care about.</div>
+        <div class="std-item">No money changes hands. A great submission will make it on merit alone.</div>
+        <div class="std-item">We'll reach out if we need more info. Response time: within a week.</div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div id="formWrap">
+      <!-- TYPE TOGGLE -->
+      <div class="form-title rev"
+        style="border-bottom:none;margin-bottom:16px;font-size:16px;color:var(--ink30);font-family:'DM Sans',sans-serif;font-weight:400">
+        What are you suggesting?</div>
+      <div class="type-toggle rev">
+        <label class="type-btn selected" id="btn-cafe" onclick="selectType('cafe')">
+          <input type="radio" name="type" value="cafe" checked>
+          <div class="type-ico">☕</div>
+          <div class="type-label">A Café</div>
+          <div class="type-sub">Bar, restaurant, or café</div>
+        </label>
+        <label class="type-btn" id="btn-event" onclick="selectType('event')">
+          <input type="radio" name="type" value="event">
+          <div class="type-ico">🎟️</div>
+          <div class="type-label">An Event</div>
+          <div class="type-sub">One-time or recurring</div>
+        </label>
+      </div>
+
+      <!-- BASIC INFO -->
+      <div class="form-section rev">
+        <div class="form-title">Basic Info</div>
+        <div class="field">
+          <label>Name of the place / event *</label>
+          <input type="text" placeholder="e.g. Soul Brew Coffee or We The Flea">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Area / Neighbourhood *</label>
+            <input type="text" placeholder="e.g. Alkapuri, Gotri Road">
+          </div>
+          <div class="field">
+            <label>Category</label>
+            <select>
+              <option value="">Select one...</option>
+              <option>Specialty Coffee</option>
+              <option>Casual Café</option>
+              <option>Restaurant</option>
+              <option>Bar / Brewery</option>
+              <option>Hidden Gem</option>
+              <option>Standup Comedy</option>
+              <option>Live Music</option>
+              <option>Flea Market</option>
+              <option>Art & Culture</option>
+              <option>Workshop</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Google Maps link or Address</label>
+          <input type="url" placeholder="https://maps.google.com/...">
+        </div>
+      </div>
+
+      <!-- YOUR TAKE -->
+      <div class="form-section rev">
+        <div class="form-title">Your Take</div>
+        <div class="field">
+          <label>Why does this place deserve to be on HUNTERS? *</label>
+          <textarea
+            placeholder="Be specific. What makes it stand out? What should people order? Why would you tell a friend to go here?"></textarea>
+          <div class="field-note">Write like you're texting a friend. Not a Google review. Be honest — even if it's
+            mostly good with one flaw, say so.</div>
+        </div>
+        <div class="field">
+          <label>What to order / what to do there</label>
+          <input type="text" placeholder="e.g. Long Black, Caribbean Cold Coffee, skip the food">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Approx. price for two</label>
+            <input type="text" placeholder="e.g. ₹400–600">
+          </div>
+          <div class="field">
+            <label>Opening hours</label>
+            <input type="text" placeholder="e.g. 10 AM – 10 PM">
+          </div>
+        </div>
+      </div>
+
+      <!-- RATINGS -->
+      <div class="form-section rev">
+        <div class="form-title">Your Ratings <span
+            style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:18px;color:var(--ink30)">out
+            of 10</span></div>
+        <div class="rating-grid">
+          <div class="rating-field field">
+            <label>Coffee / Drinks</label>
+            <input type="text" placeholder="8">
+          </div>
+          <div class="rating-field field">
+            <label>Food</label>
+            <input type="text" placeholder="7">
+          </div>
+          <div class="rating-field field">
+            <label>Vibe</label>
+            <input type="text" placeholder="9">
+          </div>
+        </div>
+      </div>
+
+      <!-- YOUR INFO -->
+      <div class="form-section rev">
+        <div class="form-title">About You</div>
+        <div class="field-row">
+          <div class="field">
+            <label>Your name</label>
+            <input type="text" placeholder="First name is fine">
+          </div>
+          <div class="field">
+            <label>Your email</label>
+            <input type="email" placeholder="so we can follow up">
+          </div>
+        </div>
+        <div class="field">
+          <label>Instagram of the place (if you know it)</label>
+          <input type="text" placeholder="@soulbrewcoffee">
+        </div>
+      </div>
+
+      <div class="submit-wrap rev">
+        <button class="submit-btn" onclick="handleSubmit()">Send to HUNTERS 🐊</button>
+        <p class="submit-note">We visit every submission ourselves before anything goes live.<br><strong>No paid
+            placements. Ever.</strong> A great spot will make it on merit alone.</p>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success" id="successMsg">
+      <div class="success-icon">🐊</div>
+      <h2>We're on it.</h2>
+      <p>Thanks for the tip. Our team will check it out personally. If it makes the cut, you'll be the first to know.
+      </p>
+      <a href="cafes.html">Browse the current picks →</a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-inner">
+      <div class="foot-top">
+        <div>
+          <div class="ft-brand-row">
+            <div class="ft-logo"><img src="/logo.png" alt="HUNTERS"></div><span
+              class="ft-name">HUNTERS</span>
+          </div>
+          <p class="ft-tagline">We hunt the best cafes and events in Vadodara. No algorithm. No sponsorships. Just
+            ruthless curation.</p>
+          <div class="ft-social"><a href="#">📸</a><a href="#">𝕏</a><a href="#">💬</a></div>
+        </div>
+        <div class="ft-col">
+          <div class="ft-col-head">Discover</div>
+          <ul>
+            <li><a href="cafes.html">All Cafes</a></li>
+            <li><a href="events.html">Upcoming Events</a></li>
+            <li><a href="index.html#featured">This Week's Picks</a></li>
+            <li><a href="index.html#how">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="ft-col">
+          <div class="ft-col-head">HUNTERS</div>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="suggest.html">Submit a Spot</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="ft-col">
+          <div class="ft-col-head">Friday Newsletter</div>
+          <p class="ft-tagline" style="margin-bottom:16px;font-size:13px">3 things worth your time, every Friday.</p>
+          <div class="ft-nl-form"><input type="email" class="ft-nl-input" placeholder="your@email.com"><button
+              class="ft-nl-btn">Join</button></div>
+          <p class="ft-nl-note">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+      <div class="foot-divider"></div>
+      <div class="foot-bottom"><span class="f-copy">© 2025 HUNTERS · Vadodara, Gujarat</span>
+        <ul class="foot-bottom-links">
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Editorial Standards</a></li>
+        </ul><span class="foot-made">Made with <span>♥</span> in Vadodara</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && x.target.classList.add('in')), { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.rev').forEach(el => io.observe(el));
+    window.addEventListener('scroll', () => { const p = document.querySelector('.nav-pill'); if (p) p.style.borderColor = scrollY > 30 ? 'rgba(242,237,230,.14)' : 'rgba(242,237,230,.09)' }, { passive: true });
+    const mb = document.getElementById('menuBtn'), mm = document.getElementById('mobileMenu');
+    if (mb && mm) { mb.addEventListener('click', () => { mm.classList.toggle('open'); const s = mb.querySelectorAll('span'); if (mm.classList.contains('open')) { s[0].style.transform = 'translateY(6.5px) rotate(45deg)'; s[1].style.opacity = '0'; s[2].style.transform = 'translateY(-6.5px) rotate(-45deg)' } else { s.forEach(x => { x.style.transform = ''; x.style.opacity = '' }) } }); mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mm.classList.remove('open'); mb.querySelectorAll('span').forEach(x => { x.style.transform = ''; x.style.opacity = '' }) })) }
+
+    function selectType(t) {
+      document.getElementById('btn-cafe').classList.toggle('selected', t === 'cafe');
+      document.getElementById('btn-event').classList.toggle('selected', t === 'event');
+    }
+    function handleSubmit() {
+      document.getElementById('formWrap').style.display = 'none';
+      const s = document.getElementById('successMsg');
+      s.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>hunters — Section 2 Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #FAFAF8;
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── FULL HERO ─── */
+.fake-hero-full {
+  background: #000;
+  min-height: 140vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.fake-hero-full::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(231,111,81,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(26,47,79,0.4) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.fake-hero-nav {
+  padding: 28px 40px;
+  display: flex; align-items: center;
+  position: relative; z-index: 1;
+}
+
+.fake-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  color: #E76F51;
+  letter-spacing: 0.08em;
+}
+
+.fake-hero-content {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 40px;
+  position: relative; z-index: 1;
+}
+
+.fake-hero-label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(231,111,81,0.7);
+  margin-bottom: 24px;
+}
+
+.fake-hero-h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 1.02; color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.fake-hero-h1 em { font-style: italic; color: #E76F51; }
+
+.fake-hero-sub {
+  font-size: 17px; color: rgba(255,255,255,0.45);
+  max-width: 400px; line-height: 1.6;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 40px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+  color: rgba(255,255,255,0.3);
+  font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.4; }
+  50% { transform: translateX(-50%) translateY(6px); opacity: 0.8; }
+}
+
+.scroll-arrow { font-size: 16px; }
+
+/* ─── SECTION 2 ─── */
+.section {
+  padding: 100px 40px 120px;
+}
+.inner { max-width: 1040px; margin: 0 auto; }
+
+/* ─── CINEMATIC REVEAL SYSTEM ─── */
+
+/* Label — leads, quick */
+.reveal-label {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 1.0s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.0s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Headline — clip-path curtain lift */
+.reveal-headline {
+  opacity: 0;
+  transform: translateY(60px);
+  clip-path: inset(0 0 100% 0);
+  transition:
+    opacity 1.2s 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.4s 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 1.2s 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Subtext */
+.reveal-sub {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 1.2s 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.3s 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Browser — the big visual, slowest + heaviest */
+.reveal-browser {
+  opacity: 0;
+  transform: translateY(90px) scale(0.96);
+  transition:
+    opacity 1.6s 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.8s 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Bottom row — last */
+.reveal-bottom {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 1.0s 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.0s 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* FIRED — .in added by JS */
+.section.in .reveal-label,
+.section.in .reveal-headline,
+.section.in .reveal-sub,
+.section.in .reveal-browser,
+.section.in .reveal-bottom {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  clip-path: inset(0 0 0% 0);
+}
+
+/* ─── TOP LABEL ─── */
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.label-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #000; color: #E76F51;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 5px 13px; border-radius: 100px;
+}
+.live-dot {
+  width: 6px; height: 6px;
+  background: #E76F51; border-radius: 50%;
+  animation: blink 1.8s ease-in-out infinite;
+}
+@keyframes blink {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:0.25; transform:scale(0.55); }
+}
+
+/* ─── HEADLINE ─── */
+.headline-wrap {
+  margin-bottom: 52px;
+}
+
+h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(38px, 5.5vw, 62px);
+  line-height: 1.04;
+  color: #000;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+h2 em { font-style: italic; color: #E76F51; }
+
+.sub {
+  font-size: 16px; color: #777;
+  max-width: 420px; line-height: 1.65;
+  font-weight: 400;
+}
+
+/* ─── MAC BROWSER ─── */
+.browser-wrap {}
+
+.browser {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.08),
+    0 2px 4px rgba(0,0,0,0.04),
+    0 12px 40px rgba(0,0,0,0.1),
+    0 40px 80px rgba(0,0,0,0.08),
+    0 80px 120px rgba(0,0,0,0.04);
+  background: #1c1c1e;
+}
+
+/* TITLE BAR */
+.titlebar {
+  background: #2d2d2f;
+  padding: 13px 18px;
+  display: flex; align-items: center; gap: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.win-btns { display: flex; gap: 8px; align-items: center; }
+.win-btn {
+  width: 13px; height: 13px; border-radius: 50%;
+  position: relative; cursor: default;
+  transition: filter 0.15s;
+}
+.win-btn:hover { filter: brightness(1.15); }
+.win-btn.red   { background: #FF5F57; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.2); }
+.win-btn.yellow{ background: #FEBC2E; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.2); }
+.win-btn.green { background: #28C840; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.2); }
+
+.tab-bar {
+  display: flex; align-items: center; gap: 2px;
+  flex: 1;
+}
+
+.tab {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px 8px 0 0;
+  padding: 7px 16px 7px 12px;
+  max-width: 240px;
+  border-bottom: none;
+}
+
+.tab-favicon {
+  width: 14px; height: 14px;
+  background: #E76F51;
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 8px; font-weight: 900; color: #fff;
+  font-family: 'DM Serif Display', serif;
+  flex-shrink: 0;
+}
+
+.tab-title {
+  font-size: 12px; color: rgba(255,255,255,0.75);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.tab-close {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  margin-left: 4px; flex-shrink: 0;
+  font-size: 8px; color: rgba(255,255,255,0.4);
+  cursor: default;
+}
+
+/* ADDRESS BAR ROW */
+.addrbar-row {
+  background: #242426;
+  padding: 8px 18px;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.nav-btns { display: flex; gap: 6px; }
+.nav-btn {
+  width: 24px; height: 24px; border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+  display: flex; align-items: center; justify-content: center;
+  cursor: default;
+}
+.nav-btn svg { width: 12px; height: 12px; stroke: rgba(255,255,255,0.3); }
+
+.addrbar {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 6px 14px;
+  display: flex; align-items: center; gap: 8px;
+  max-width: 480px; margin: 0 auto;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.lock-icon { width: 11px; height: 11px; stroke: rgba(255,255,255,0.3); flex-shrink: 0; }
+.addr-text { font-size: 12px; color: rgba(255,255,255,0.45); letter-spacing: 0.01em; }
+
+/* ─── MAP + SIDEBAR SPLIT ─── */
+.content-split {
+  display: flex;
+  height: 500px;
+}
+
+/* MAP */
+.map-pane {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #1a2332;
+  min-width: 0;
+}
+
+.map-frame {
+  width: 100%; height: 100%;
+  border: none; display: block;
+  filter: saturate(0.85) brightness(0.9);
+  transition: filter 0.4s;
+}
+.map-frame:hover { filter: saturate(1) brightness(1); }
+
+/* Pin overlay — sits on top of iframe */
+.pins-overlay {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+
+.map-gradient {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right, transparent 70%, rgba(17,17,17,0.6) 100%),
+    radial-gradient(ellipse at 30% 50%, transparent 60%, rgba(10,15,25,0.25) 100%);
+  pointer-events: none;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 320px;
+  flex-shrink: 0;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(255,255,255,0.05);
+}
+
+.sidebar-head {
+  padding: 22px 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+
+.sidebar-eyebrow {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.2em; color: #E76F51;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+
+.sidebar-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 19px; color: #fff;
+  line-height: 1.25; margin-bottom: 12px;
+}
+
+.curated-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(231,111,81,0.12);
+  border: 1px solid rgba(231,111,81,0.25);
+  color: rgba(231,111,81,0.9);
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px;
+}
+
+/* CARDS */
+.cards {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.08) transparent;
+}
+.cards::-webkit-scrollbar { width: 3px; }
+.cards::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 2px; }
+
+.card {
+  display: flex; gap: 12px;
+  padding: 13px 18px;
+  cursor: pointer;
+  border-left: 2.5px solid transparent;
+  transition: background 0.18s, border-color 0.18s;
+  position: relative;
+}
+.card:hover { background: rgba(255,255,255,0.03); }
+.card.active {
+  background: rgba(231,111,81,0.07);
+  border-left-color: #E76F51;
+}
+
+.card-thumb {
+  width: 54px; height: 54px;
+  border-radius: 9px; overflow: hidden;
+  flex-shrink: 0; background: #222;
+  position: relative;
+}
+.card-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  filter: saturate(0.9);
+  transition: filter 0.2s, transform 0.3s;
+}
+.card:hover .card-thumb img {
+  filter: saturate(1.1);
+  transform: scale(1.06);
+}
+
+.card-info { flex: 1; min-width: 0; }
+
+.card-type {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 0.16em; color: #E76F51;
+  text-transform: uppercase; margin-bottom: 3px;
+}
+
+.card-name {
+  font-size: 13px; font-weight: 600; color: #fff;
+  line-height: 1.25; margin-bottom: 4px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.card-row {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 5px;
+}
+.card-stars { color: #E76F51; font-size: 10px; }
+.card-rating { font-size: 11px; font-weight: 700; color: #fff; }
+.card-reviews { font-size: 10px; color: rgba(255,255,255,0.3); }
+.card-sep { color: rgba(255,255,255,0.15); font-size: 10px; }
+.card-area { font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 0.04em; }
+
+.card-desc {
+  font-size: 11px; color: rgba(255,255,255,0.42);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* SIDEBAR FOOTER */
+.sidebar-foot {
+  padding: 14px 18px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  flex-shrink: 0;
+}
+
+.cta-btn {
+  width: 100%;
+  background: #E76F51;
+  color: #fff; border: none;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+  box-shadow: 0 4px 16px rgba(231,111,81,0.3);
+}
+.cta-btn:hover {
+  background: #d4613f;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(231,111,81,0.45);
+}
+.cta-btn svg { width: 14px; height: 14px; stroke: #fff; }
+
+/* BOTTOM ROW */
+.bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+
+.spots-count {
+  font-size: 13px; color: #aaa;
+  display: flex; align-items: center; gap: 8px;
+}
+.spots-count strong { color: #000; font-weight: 700; }
+
+.dots-row { display: flex; gap: 6px; }
+.dot-ind {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.dot-ind.on { background: #E76F51; transform: scale(1.3); }
+
+/* ── TABLET ── */
+@media (max-width: 900px) {
+  .section { padding: 80px 28px 100px; }
+  .sidebar { width: 280px; }
+  .content-split { height: 460px; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 720px) {
+
+  /* Hero */
+  .fake-hero-full { min-height: 100vh; }
+  .fake-hero-nav { padding: 20px 20px; }
+  .fake-hero-h1 { font-size: clamp(40px, 11vw, 60px); }
+  .fake-hero-sub { font-size: 15px; }
+
+  /* Section */
+  .section { padding: 60px 20px 80px; }
+  .inner { max-width: 100%; }
+
+  /* Reduce travel distance on mobile — feels better */
+  .reveal-headline { transform: translateY(36px); }
+  .reveal-browser  { transform: translateY(48px) scale(0.97); }
+  .reveal-sub      { transform: translateY(24px); }
+
+  /* Headline */
+  h2 { font-size: clamp(28px, 8vw, 40px); margin-bottom: 10px; }
+  .sub { font-size: 14px; max-width: 100%; margin-bottom: 0; }
+  .headline-wrap { margin-bottom: 36px; }
+
+  /* Browser — thinner titlebar on mobile */
+  .browser { border-radius: 12px; }
+  .titlebar { padding: 10px 12px; gap: 10px; }
+  .win-btn { width: 11px; height: 11px; }
+  .win-btns { gap: 6px; }
+  .tab { padding: 5px 10px 5px 8px; max-width: 180px; }
+  .tab-title { font-size: 11px; }
+
+  /* Address bar row — hide nav buttons, simplify */
+  .addrbar-row { padding: 7px 12px; gap: 8px; }
+  .nav-btns { display: none; }
+  .addrbar { max-width: 100%; margin: 0; }
+  .addr-text { font-size: 11px; }
+
+  /* Split — stack vertically */
+  .content-split {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* Map on top, shorter */
+  .map-pane {
+    height: 220px;
+    width: 100%;
+    order: 1;
+  }
+  .map-frame { filter: saturate(0.85) brightness(0.88); }
+
+  /* Sidebar below map */
+  .sidebar {
+    width: 100%;
+    order: 2;
+    max-height: 360px;
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .sidebar-head { padding: 16px 16px 12px; }
+  .sidebar-title { font-size: 17px; }
+  .sidebar-eyebrow { font-size: 9px; }
+
+  /* Cards — horizontal scroll on mobile */
+  .cards {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 12px;
+    gap: 10px;
+    scrollbar-width: none;
+    max-height: none;
+  }
+  .cards::-webkit-scrollbar { display: none; }
+
+  .card {
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 160px;
+    padding: 12px;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.03);
+    gap: 8px;
+  }
+  .card.active {
+    border-bottom-color: #E76F51;
+    border-left-color: transparent;
+    background: rgba(231,111,81,0.08);
+  }
+
+  .card-thumb {
+    width: 100%;
+    height: 90px;
+    border-radius: 7px;
+  }
+
+  .card-name { font-size: 12px; white-space: normal; line-height: 1.2; }
+  .card-desc { display: none; } /* hide desc on mobile cards */
+  .card-type { font-size: 8px; }
+  .card-rating { font-size: 10px; }
+  .card-reviews { display: none; }
+
+  /* Sidebar footer */
+  .sidebar-foot { padding: 10px 12px; }
+  .cta-btn { padding: 10px; font-size: 11px; }
+
+  /* Bottom row */
+  .bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .spots-count { font-size: 12px; }
+}
+
+/* ── SMALL PHONES ── */
+@media (max-width: 400px) {
+  .section { padding: 48px 16px 64px; }
+  h2 { font-size: 26px; }
+  .map-pane { height: 180px; }
+  .card { width: 140px; }
+}
+</style>
+</head>
+<body>
+
+<!-- FAKE HERO - so you can scroll into section 2 -->
+<div class="fake-hero-full">
+  <div class="fake-hero-nav">
+    <span class="fake-logo">hunters</span>
+  </div>
+  <div class="fake-hero-content">
+    <div class="fake-hero-label">Vadodara · Est. 2024</div>
+    <h1 class="fake-hero-h1">Stop scrolling.<br><em>Start hunting.</em></h1>
+    <p class="fake-hero-sub">hunters finds the cafes and events worth your time in Vadodara.</p>
+    <div class="scroll-hint">
+      <span>Scroll down</span>
+      <div class="scroll-arrow">↓</div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SECTION 2 ─── -->
+<section class="section" id="sec2">
+  <div class="inner">
+
+    <!-- LABEL -->
+    <div class="label-row reveal-label">
+      <div class="label-pill">
+        <span class="live-dot"></span>
+        The Territory
+      </div>
+    </div>
+
+    <!-- HEADLINE -->
+    <div class="headline-wrap">
+      <h2 class="reveal-headline">We know <em>every corner</em><br>of Vadodara.</h2>
+      <p class="sub reveal-sub">5 places worth your time right now. No filler. No sponsored garbage. Just the good stuff.</p>
+    </div>
+
+    <!-- BROWSER -->
+    <div class="browser-wrap reveal-browser">
+      <div class="browser">
+
+        <!-- TITLE BAR with tabs -->
+        <div class="titlebar">
+          <div class="win-btns">
+            <div class="win-btn red"></div>
+            <div class="win-btn yellow"></div>
+            <div class="win-btn green"></div>
+          </div>
+          <div class="tab-bar">
+            <div class="tab">
+              <div class="tab-favicon">H</div>
+              <span class="tab-title">Best Places in Vadodara — hunters</span>
+              <div class="tab-close">✕</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADDRESS BAR -->
+        <div class="addrbar-row">
+          <div class="nav-btns">
+            <div class="nav-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+            </div>
+            <div class="nav-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </div>
+          </div>
+          <div class="addrbar">
+            <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <span class="addr-text">hunters.in/map · Best Places in Vadodara</span>
+          </div>
+        </div>
+
+        <!-- SPLIT: MAP + SIDEBAR -->
+        <div class="content-split">
+
+          <!-- MAP -->
+          <div class="map-pane" id="mapPane">
+            <iframe
+              class="map-frame"
+              id="mapFrame"
+              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d29475.305!2d73.165!3d22.305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBest+cafes+and+venues+Vadodara!5e0!3m2!1sen!2sin!4v1234567890"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="map-gradient"></div>
+          </div>
+
+          <!-- SIDEBAR -->
+          <div class="sidebar">
+            <div class="sidebar-head">
+              <div class="sidebar-eyebrow">hunters picks</div>
+              <div class="sidebar-title">Best Places in<br>Vadodara</div>
+              <div class="curated-badge">
+                <span class="live-dot"></span>
+                Curated · Not sponsored
+              </div>
+            </div>
+
+            <div class="cards" id="cardsList"></div>
+
+            <div class="sidebar-foot">
+              <button class="cta-btn">
+                View all spots
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM ROW -->
+    <div class="bottom-row reveal-bottom">
+      <div class="spots-count">
+        <strong>5</strong> curated spots in Vadodara
+      </div>
+      <div class="dots-row" id="dotsRow"></div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+const places = [
+  {
+    id: 1,
+    name: "The Cave Café",
+    type: "Café",
+    area: "Sayajiganj",
+    rating: "4.9",
+    reviews: "469",
+    desc: "Highest rated café in the city. The atmosphere is unlike anything else in Vadodara.",
+    img: "https://lh3.googleusercontent.com/places/ANXAkqHBgkVuJgfVK8Ax_FYZzp2qqTi05S1dJO4MqKVCiZnyUjnYphumdE1ciZWpa5bODjgnNoasLqHKukNOCz7HWhXxHt55NvY7ArY=s400-w400-h300",
+    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.5!2d73.187!3d22.308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcfd29b8ee747%3A0x6116ebbdb53cf2bf!2sThe%20Cave%20Cafe!5e0!3m2!1sen!2sin!4v1234567890"
+  },
+  {
+    id: 2,
+    name: "The Tulip Touch Café",
+    type: "Café",
+    area: "Akota",
+    rating: "4.5",
+    reviews: "1,910",
+    desc: "Most aesthetic café in Vadodara. Monochrome interiors, solid food, great for content.",
+    img: "https://lh3.googleusercontent.com/places/ANXAkqFeSbvR1fkvTDNo6FnUqKc05jSgEspQxozY1PDYmPKqT4GWtg01-n4kBa3wU13u0Oo-iKpuyUJ-awku80_rFxCNXhM5oW5MTyY=s400-w400-h300",
+    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.2!2d73.167!3d22.300!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcc090a8aa09%3A0x5e20ad2cb32ba9c2!2sThe%20Tulip%20Touch%20Caf%C3%A9!5e0!3m2!1sen!2sin!4v1234567890"
+  },
+  {
+    id: 3,
+    name: "Lionize Restro Cafe",
+    type: "Café · Live Music",
+    area: "Race Course",
+    rating: "4.6",
+    reviews: "369",
+    desc: "Premium feel, live music, open till 2AM. Rare for Vadodara. Don't sleep on this one.",
+    img: "https://lh3.googleusercontent.com/places/ANXAkqGiBYVbA3pHvT5X1N8bVBVjV-TjvMQOeQC58hUryLRLfWtxEhx_oAMlJ3Msdmy5TFe0pZEe8j6KjxiRgXMAMbEHpzeuBx2GM-8=s400-w400-h300",
+    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.1!2d73.157!3d22.314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcc292be2f1f7%3A0xd6f4d491949b549c!2sLionize%20Restro%20Cafe!5e0!3m2!1sen!2sin!4v1234567890"
+  },
+  {
+    id: 4,
+    name: "Banyan Paradise Resort",
+    type: "Event Venue",
+    area: "Vemali",
+    rating: "4.2",
+    reviews: "5,360",
+    desc: "The go-to venue for large events in Vadodara. If something big is happening, it's here.",
+    img: "https://lh3.googleusercontent.com/places/ANXAkqEdm3TFzuKGSwxPvPSc4oQnELGwt1T2rnSLXqjjhty1P2nzqvELx80q6bpQaDlQkSAzb7uk0JAMS_jchbyuGsKRsluEs5gKlfI=s400-w400-h300",
+    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.8!2d73.199!3d22.362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fcc9f9cd4975b%3A0x7a6ddd4e9f9ba79f!2sBanyan%20Paradise%20Resort!5e0!3m2!1sen!2sin!4v1234567890"
+  },
+  {
+    id: 5,
+    name: "Waves Club",
+    type: "Club · Event Space",
+    area: "Bhayli",
+    rating: "4.5",
+    reviews: "7,028",
+    desc: "Best club and event space in the city. 7000+ reviews don't lie. Watch for weekend events.",
+    img: "https://lh3.googleusercontent.com/places/ANXAkqF8D0O8QlKKLhAA1bT_sgfP1SA7XMFSs80OljAfYKcfy7glvJbunDZ5Prhk65KR2Ys2arQqPIzGuF2eKf94U4VX4rw3kEYDwhY=s400-w400-h300",
+    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.0!2d73.130!3d22.287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc7d19dc799f1%3A0xc5a44de8f48fb4ce!2sWaves%20Club!5e0!3m2!1sen!2sin!4v1234567890"
+  }
+];
+
+let activeId = null;
+const mapFrame = document.getElementById('mapFrame');
+
+// ── SMOOTH MAP SWAP ──
+function swapMap(src) {
+  mapFrame.style.transition = 'opacity 0.3s ease, transform 0.35s cubic-bezier(0.4,0,0.2,1)';
+  mapFrame.style.opacity = '0';
+  mapFrame.style.transform = 'scale(1.025)';
+  setTimeout(() => {
+    mapFrame.src = src;
+    mapFrame.style.transition = 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1)';
+    mapFrame.style.opacity = '1';
+    mapFrame.style.transform = 'scale(1)';
+  }, 300);
+}
+
+function setActive(id) {
+  const prev = activeId;
+  activeId = activeId === id ? null : id;
+
+  const place = places.find(p => p.id === activeId);
+  if (activeId && place && activeId !== prev) {
+    swapMap(place.mapSrc);
+  } else if (!activeId) {
+    swapMap("https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d29475.305!2d73.165!3d22.305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBest+cafes+and+venues+Vadodara!5e0!3m2!1sen!2sin!4v1234567890");
+  }
+
+  render();
+}
+
+// ── RENDER CARDS ──
+function render() {
+  const cardsList = document.getElementById('cardsList');
+  cardsList.innerHTML = places.map((p, i) => `
+    <div class="card ${activeId === p.id ? 'active' : ''}"
+         data-id="${p.id}"
+         style="animation: cardIn 0.45s ${i * 0.07}s both cubic-bezier(0.16,1,0.3,1)">
+      <div class="card-thumb">
+        <img src="${p.img}" alt="${p.name}" loading="lazy"/>
+      </div>
+      <div class="card-info">
+        <div class="card-type">${p.type}</div>
+        <div class="card-name">${p.name}</div>
+        <div class="card-row">
+          <span class="card-stars">★</span>
+          <span class="card-rating">${p.rating}</span>
+          <span class="card-reviews">(${p.reviews})</span>
+          <span class="card-sep">·</span>
+          <span class="card-area">${p.area}</span>
+        </div>
+        <div class="card-desc">${p.desc}</div>
+      </div>
+    </div>
+  `).join('');
+
+  // dots
+  const dotsRow = document.getElementById('dotsRow');
+  dotsRow.innerHTML = places.map(p => `
+    <div class="dot-ind ${activeId === p.id ? 'on' : ''}" data-id="${p.id}"></div>
+  `).join('');
+
+  // click events
+  document.querySelectorAll('.card').forEach(el => {
+    el.addEventListener('click', () => {
+      const id = parseInt(el.dataset.id);
+      setActive(id);
+      setTimeout(() => {
+        const active = document.querySelector('.card.active');
+        if (active) active.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 60);
+    });
+  });
+
+  document.querySelectorAll('.dot-ind').forEach(el => {
+    el.addEventListener('click', () => setActive(parseInt(el.dataset.id)));
+  });
+}
+
+// ── SCROLL ENTRANCE — Anthropic-style cinematic reveal ──
+const section = document.getElementById('sec2');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      section.classList.add('in');
+      observer.unobserve(section);
+    }
+  });
+}, { threshold: 0.12 });
+
+observer.observe(section);
+
+// Initial card render
+render();
+</script>
+
+<style>
+@keyframes cardIn {
+  from { opacity: 0; transform: translateX(14px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+</style>
+</body>
+</html>
