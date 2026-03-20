@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&family=DM+Serif+Display:ital@0;1&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
     rel="stylesheet">
 
   <style>
@@ -16,16 +16,15 @@
    DESIGN TOKENS
 ───────────────────────────────────────── */
     :root {
-      --red: #e63f1e;
-      --red-bright: #ff5230;
-      --red-dim: rgba(230, 63, 30, .08);
-      --red-glow: rgba(230, 63, 30, .18);
+      --primary: #ffffff;
+      --primary-dim: rgba(255, 255, 255, .08);
+      --primary-glow: rgba(255, 255, 255, .18);
 
-      --bg: #080808;
-      --bg1: #0d0d0d;
-      --bg2: #111111;
-      --bg3: #161616;
-      --bg4: #1c1c1c;
+      --bg: #000000;
+      --bg1: #060606;
+      --bg2: #0a0a0a;
+      --bg3: #111111;
+      --bg4: #151515;
 
       --ink: #f2ede6;
       --ink60: rgba(242, 237, 230, .6);
@@ -67,9 +66,9 @@
     }
 
     body {
-      background: #050505;
+      background: #000000;
       color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 400;
       overflow-x: hidden;
     }
@@ -84,8 +83,8 @@
     }
 
     ::selection {
-      background: var(--red);
-      color: white;
+      background: var(--ink);
+      color: var(--bg);
     }
 
 
@@ -205,7 +204,7 @@
       width: 28px;
       height: 28px;
       border-radius: 7px;
-      background: var(--red);
+      background: var(--primary);
       overflow: hidden;
       flex-shrink: 0;
     }
@@ -218,7 +217,7 @@
     }
 
     .n-name {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: 14px;
       letter-spacing: .1em;
@@ -287,20 +286,20 @@
     .n-cta {
       font-size: 12.5px;
       font-weight: 700;
-      color: #fff;
+      color: #000;
       padding: 8px 18px;
       border-radius: 100px;
-      background: var(--red);
+      background: var(--primary);
       border: 1px solid rgba(255, 255, 255, .08);
-      box-shadow: 0 2px 12px rgba(230, 63, 30, .35), 0 1px 0 rgba(255, 255, 255, .1) inset;
+      box-shadow: 0 2px 12px rgba(255, 255, 255, .15), 0 1px 0 rgba(255, 255, 255, .1) inset;
       transition: background .2s, transform .15s var(--spring), box-shadow .3s;
       white-space: nowrap;
     }
 
     .n-cta:hover {
-      background: var(--red-bright);
+      background: var(--primary);
       transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(230, 63, 30, .5), 0 1px 0 rgba(255, 255, 255, .12) inset;
+      box-shadow: 0 6px 24px rgba(255, 255, 255, .2), 0 1px 0 rgba(255, 255, 255, .12) inset;
     }
 
     /* ─────────────────────────────────────────
@@ -334,103 +333,61 @@
     }
 
     /* ─────────────────────────────────────────
-   HERO
+   HERO — Framer Style (Massive & Clean)
 ───────────────────────────────────────── */
     .hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 90px 40px 48px;
+      justify-content: center; /* Vertically center hero content */
+      padding: 0 24px;
       text-align: center;
       position: relative;
-      overflow: hidden;
+      background: #000;
+      overflow: visible; /* Allow badge to show if slightly offset */
     }
 
-    /* Ambient glow */
-    .h-glow {
-      position: absolute;
-      top: 5%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1000px;
-      height: 700px;
-      background: radial-gradient(ellipse at 50% 30%, rgba(230, 63, 30, .11) 0%, transparent 62%);
-      pointer-events: none;
-      animation: breathe 7s ease-in-out infinite;
-    }
-
-    @keyframes breathe {
-
-      0%,
-      100% {
-        opacity: .8;
-        transform: translateX(-50%) scale(1);
-      }
-
-      50% {
-        opacity: 1;
-        transform: translateX(-50%) scale(1.06);
-      }
-    }
-
-
-    /* Badge */
     .h-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(230, 63, 30, .07);
-      border: 1px solid rgba(230, 63, 30, .18);
+      gap: 10px;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 100px;
-      padding: 5px 14px;
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 24px;
-      animation: fadeUp .7s var(--ease-out) .1s both;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 32px;
+      animation: fadeUp .7s var(--ease-out) both;
+      cursor: default;
     }
 
-    .h-dot {
-      width: 5px;
-      height: 5px;
-      background: var(--red);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
+    .h-badge-icon {
+      width: 20px;
+      height: 20px;
+      background: url('/logo.png') center/cover no-repeat;
+      border-radius: 4px;
+      opacity: 0.9;
     }
 
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: .3;
-        transform: scale(.6);
-      }
-    }
-
-    /* Headline — word-by-word */
+    /* Headline */
     .h-title {
-      font-family: 'Cabinet Grotesk', sans-serif;
-      font-weight: 900;
-      font-size: clamp(40px, 5.5vw, 80px);
-      line-height: .92;
-      letter-spacing: -.03em;
-      margin-bottom: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 58px; /* increased by 10px per request */
+      line-height: 0.96;
+      letter-spacing: -.04em;
+      color: #fff;
+      margin-bottom: 20px;
+      max-width: 1000px;
     }
 
-    /* Each line clips to reveal text on load */
     .h-line {
       display: block;
       overflow: hidden;
-      padding-bottom: .06em;
+      padding-bottom: 0;
     }
 
     .h-line-inner {
@@ -443,54 +400,42 @@
     }
 
     .hl2 .h-line-inner {
-      animation-delay: .24s;
-    }
-
-    .hl3 .h-line-inner {
-      animation-delay: .36s;
+      animation-delay: .32s;
     }
 
     @keyframes lineUp {
       from {
-        transform: translateY(102%);
+        transform: translateY(110%);
         opacity: 0;
       }
-
       to {
         transform: translateY(0);
         opacity: 1;
       }
     }
 
-    .h-serif {
-      font-family: 'Instrument Serif', serif;
-      font-style: italic;
-      font-weight: 400;
-      color: var(--red);
-    }
-
-    .h-sub {
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--ink30);
-      line-height: 1.75;
-      max-width: 480px;
-      margin: 20px auto 32px;
-      animation: fadeUp .7s var(--ease-out) .5s both;
-    }
-
-    .h-sub strong {
-      color: var(--ink60);
-      font-weight: 500;
+    .h-accent {
+      color: #ffffff;
     }
 
     .h-ctas {
       display: flex;
-      gap: 12px;
+      gap: 16px;
       justify-content: center;
       flex-wrap: wrap;
-      animation: fadeUp .7s var(--ease-out) .62s both;
-      margin-bottom: 48px;
+      margin-top: 36px;
+      animation: fadeUp .7s var(--ease-out) .55s both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ─────────────────────────────────────────
@@ -569,7 +514,7 @@
     }
 
     .croc-title {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: clamp(22px, 2.8vw, 30px);
       line-height: 1.18;
@@ -622,7 +567,7 @@
       position: absolute;
       bottom: -14px;
       right: -14px;
-      background: var(--red);
+      background: var(--primary);
       color: #fff;
       font-size: 11px;
       font-weight: 700;
@@ -724,7 +669,7 @@
     }
 
     .cb-static-text {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-style: italic;
       font-size: clamp(16px, 2vw, 22px);
       color: rgba(242, 237, 230, .65);
@@ -781,7 +726,7 @@
       font-weight: 700;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--primary);
       margin-bottom: 16px;
       display: flex;
       align-items: center;
@@ -792,11 +737,11 @@
       content: '';
       width: 18px;
       height: 1px;
-      background: var(--red);
+      background: var(--primary);
     }
 
     .sec-h {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: clamp(34px, 3.8vw, 52px);
       line-height: 1.04;
@@ -805,7 +750,7 @@
     }
 
     .sec-h .it {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-style: italic;
       font-weight: 400;
       color: var(--ink30);
@@ -819,51 +764,51 @@
     }
 
     /* ─────────────────────────────────────────
-   BUTTONS
+   BUTTONS - Framer Pill CTAs
 ───────────────────────────────────────── */
-    .btn-red {
+    .btn-primary {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 7px;
-      background: var(--red);
-      color: #fff;
-      font-family: 'Cabinet Grotesk', sans-serif;
-      font-size: 14px;
+      background: #ffffff;
+      color: #000000;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
       font-weight: 700;
-      padding: 13px 28px;
+      padding: 14px 36px;
       border-radius: 100px;
       border: none;
       white-space: nowrap;
-      box-shadow: 0 4px 24px rgba(230, 63, 30, .32);
       transition: background .2s, transform .2s var(--spring), box-shadow .25s;
     }
 
-    .btn-red:hover {
-      background: var(--red-bright);
+    .btn-primary:hover {
+      background: #f5f5f5;
       transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(230, 63, 30, .5);
+      box-shadow: 0 12px 32px rgba(255, 255, 255, .1);
     }
 
     .btn-outline {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 7px;
-      background: transparent;
-      color: var(--ink60);
-      font-family: 'Cabinet Grotesk', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 12px 28px;
+      background: #111111;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 36px;
       border-radius: 100px;
-      border: 1px solid var(--ink10);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       white-space: nowrap;
-      transition: border-color .2s, color .2s, transform .2s var(--spring), background .2s;
+      transition: background .2s, transform .2s var(--spring), border-color .2s;
     }
 
     .btn-outline:hover {
-      border-color: rgba(242, 237, 230, .22);
-      color: var(--ink);
-      background: var(--ink03);
+      background: #181818;
+      border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
     }
 
@@ -921,13 +866,13 @@
       font-size: 10px;
       font-weight: 700;
       letter-spacing: .12em;
-      color: var(--red);
+      color: var(--primary);
       text-transform: uppercase;
       margin-bottom: 12px;
     }
 
     .pain-t {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 20px;
       color: var(--ink);
@@ -991,7 +936,7 @@
       font-size: 9px;
       font-weight: 700;
       letter-spacing: .12em;
-      color: var(--red);
+      color: var(--primary);
       text-transform: uppercase;
       margin-bottom: 8px;
     }
@@ -1020,10 +965,10 @@
     }
 
     .sc-score strong {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: 14px;
-      color: var(--red);
+      color: var(--primary);
       margin-right: 2px;
     }
 
@@ -1054,10 +999,10 @@
     }
 
     .step-n {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: 12px;
-      color: var(--red);
+      color: var(--primary);
       min-width: 26px;
       margin-top: 2px;
     }
@@ -1103,7 +1048,7 @@
     }
 
     .see-all:hover {
-      color: var(--red);
+      color: var(--primary);
     }
 
     .see-all:hover::after {
@@ -1181,8 +1126,8 @@
     }
 
     .chip-evt {
-      background: rgba(230, 63, 30, .16);
-      color: var(--red);
+      background: rgba(255, 255, 255, .08);
+      color: var(--primary);
     }
 
     .c-badge {
@@ -1204,7 +1149,7 @@
     }
 
     .c-name {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 20px;
       color: var(--ink);
@@ -1235,10 +1180,10 @@
     }
 
     .c-sc strong {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: 15px;
-      color: var(--red);
+      color: var(--primary);
       margin-right: 2px;
     }
 
@@ -1282,7 +1227,7 @@
       position: absolute;
       top: 28px;
       left: 48px;
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 130px;
       line-height: 1;
       color: rgba(230, 63, 30, .05);
@@ -1291,7 +1236,7 @@
     }
 
     .bq-text {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-style: italic;
       font-weight: 400;
       font-size: clamp(20px, 2.6vw, 32px);
@@ -1322,7 +1267,7 @@
     }
 
     .av-r {
-      background: linear-gradient(135deg, #e63f1e, #a52a0e);
+      background: linear-gradient(135deg, #ffffff, #333333);
     }
 
     .bq-nm {
@@ -1402,7 +1347,7 @@
     }
 
     .tc-q {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-style: italic;
       font-size: 15px;
       line-height: 1.78;
@@ -1429,7 +1374,7 @@
     }
 
     .tav1 {
-      background: linear-gradient(135deg, #e63f1e, #a52a0e);
+      background: linear-gradient(135deg, #ffffff, #333333);
     }
 
     .tav2 {
@@ -1544,7 +1489,7 @@
       border-radius: 18px;
       overflow: hidden;
       margin: 0 auto 30px;
-      box-shadow: 0 0 0 1px rgba(230, 63, 30, .18), 0 20px 60px rgba(230, 63, 30, .2);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, .1), 0 20px 60px rgba(255, 255, 255, .1);
     }
 
     .cta-logo img {
@@ -1555,7 +1500,7 @@
     }
 
     .cta-h {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: clamp(54px, 8.5vw, 108px);
       line-height: .9;
@@ -1564,11 +1509,11 @@
     }
 
     .cta-h .accent {
-      color: var(--red);
+      color: var(--primary);
     }
 
     .cta-h .it {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-style: italic;
       font-weight: 400;
     }
@@ -1606,7 +1551,7 @@
       bottom: -30px;
       left: 50%;
       transform: translateX(-50%);
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: clamp(80px, 14vw, 180px);
       letter-spacing: -.04em;
@@ -1659,7 +1604,7 @@
       transform: translateX(-20%);
       background: var(--ink);
       color: #050505;
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 13px;
       padding: 10px 16px;
@@ -1772,10 +1717,10 @@
       width: 38px;
       height: 38px;
       border-radius: 10px;
-      background: var(--red);
+      background: var(--primary);
       overflow: hidden;
       flex-shrink: 0;
-      box-shadow: 0 4px 16px rgba(230, 63, 30, .35);
+      box-shadow: 0 4px 16px rgba(255, 255, 255, .15);
     }
 
     .foot-logo img {
@@ -1786,7 +1731,7 @@
     }
 
     .foot-wordmark {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: 17px;
       letter-spacing: .1em;
@@ -1800,7 +1745,7 @@
       max-width: 240px;
       margin-bottom: 24px;
       font-style: italic;
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
     .foot-social {
@@ -1885,7 +1830,7 @@
       padding: 10px 16px;
       font-size: 13px;
       color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       outline: none;
       transition: border-color .2s, background .2s;
     }
@@ -1900,22 +1845,22 @@
     }
 
     .foot-nl-btn {
-      background: var(--red);
+      background: var(--primary);
       color: #fff;
       border: none;
       border-radius: 100px;
       padding: 10px 18px;
       font-size: 12.5px;
       font-weight: 700;
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       cursor: pointer;
-      box-shadow: 0 2px 12px rgba(230, 63, 30, .35);
+      box-shadow: 0 2px 12px rgba(255, 255, 255, .15);
       transition: background .2s, transform .15s var(--spring);
       white-space: nowrap;
     }
 
     .foot-nl-btn:hover {
-      background: var(--red-bright);
+      background: var(--primary);
       transform: translateY(-1px);
     }
 
@@ -1987,7 +1932,7 @@
     }
 
     .foot-love span {
-      color: var(--red);
+      color: var(--primary);
     }
 
 
@@ -2070,7 +2015,7 @@
     }
 
     .n-mobile-menu a {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 32px;
       color: var(--ink30);
@@ -2092,8 +2037,8 @@
 
     .n-mobile-menu .nm-cta {
       margin-top: 24px;
-      background: var(--red);
-      color: #fff !important;
+      background: var(--primary);
+      color: #000 !important;
       border-radius: 100px;
       padding: 16px 40px !important;
       font-size: 16px !important;
@@ -2154,17 +2099,16 @@
 
       /* Hero */
       .hero {
-        padding: 100px 20px 56px;
+        padding: 0 24px;
       }
 
-      .h-sub {
-        font-size: 15px;
-        margin: 24px auto 36px;
+      .h-title {
+        font-size: clamp(36px, 6vw, 72px);
       }
 
       .h-ctas {
-        gap: 10px;
-        margin-bottom: 52px;
+        gap: 12px;
+        margin-top: 36px;
       }
 
       /* Croc card */
@@ -2310,27 +2254,21 @@
 
       /* Hero */
       .hero {
-        padding: 86px 16px 48px;
+        padding: 0 16px;
         min-height: 100svh;
       }
 
-      .h-badge {
-        font-size: 9.5px;
-        padding: 4px 12px;
-        margin-bottom: 28px;
-      }
-
-      .h-sub {
-        font-size: 14px;
-        max-width: 100%;
-        margin: 20px auto 30px;
+      .h-title {
+        font-size: 48px;
+        line-height: 1.0;
+        letter-spacing: -.03em;
       }
 
       .h-ctas {
         flex-direction: column;
         align-items: center;
         gap: 10px;
-        margin-bottom: 40px;
+        margin-top: 36px;
       }
 
       .h-ctas a {
@@ -2623,52 +2561,30 @@
   </div>
 
 
-  <!-- ══════════════════════ HERO ══════════════════════ -->
+  <!-- ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── -->
   <section class="hero">
-    <div class="h-glow"></div>
 
     <div class="h-badge">
-      <span class="h-dot"></span>
-      Vadodara's only ruthless curation
+      <div class="h-badge-icon"></div>
+      <span>Hunters Awards 25 winners announced</span>
     </div>
 
     <h1 class="h-title">
-      <span class="h-line hl1"><span class="h-line-inner">Your weekend</span></span>
-      <span class="h-line hl2"><span class="h-line-inner">deserves <span class="h-serif">better.</span></span></span>
-      <span class="h-line hl3"><span class="h-line-inner">Stop the scroll.</span></span>
+      <span class="h-line hl1"><span class="h-line-inner">Vadodara's weekends</span></span>
+      <span class="h-line hl2"><span class="h-line-inner">are better than you think.</span></span>
     </h1>
-
-    <p class="h-sub">
-      <strong>47 cafes. 12 events this month. Zero paid placements.</strong><br>
-      HUNTERS finds what's worth your time in Vadodara — and ruthlessly cuts everything else.
+    
+    <p class="h-subtitle" style="margin: 0 auto 0px; max-width: 520px; font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, 0.55); animation: fadeUp 0.7s var(--ease-out) 0.4s both;">
+      HUNTERS is the city guide trusted by locals. Discover the best cafes, events, and venues without the noise.
     </p>
 
     <div class="h-ctas">
-      <a href="#featured" class="btn-red">Start Hunting →</a>
-      <a href="#submit" class="btn-outline">Submit a Spot</a>
+      <a href="cafes.html" class="btn-primary">Start Hunting →</a>
+      <a href="suggest.html" class="btn-outline">Submit a Spot</a>
     </div>
 
-    <!-- CROC TILT CARD -->
-    <div class="croc-wrap">
-      <div class="croc-card" id="crocCard">
-        <div class="croc-inner">
-          <div class="croc-text">
-            <div class="croc-eyebrow">Meet your hunter</div>
-            <h2 class="croc-title">Patient. Strategic.<br>Knows every corner<br>of Vadodara.</h2>
-            <p class="croc-body">Like the crocodiles in Vadodara's waters — we wait for what's genuinely worth it. We
-              only surface what passes our standard. So you don't have to do the work.</p>
-          </div>
-
-          <div class="croc-img-side">
-            <img src="/logo.png" alt="HUNTERS Mascot — Croc with iced coffee">
-            <div class="croc-badge">🐊 The Hunter</div>
-          </div>
-        </div>
-
-        <!-- Flush bottom bar — scrolling neighbourhoods -->
-
-      </div>
-    </div>
   </section>
 
   <!-- ══════════════════════ SECTION 2: THE TERRITORY (MAP) ══════════════════════ -->
@@ -2676,7 +2592,7 @@
     /* ── MAP SECTION STYLES ── */
     .map-sec {
       padding: 100px 40px 120px;
-      background: #FAFAF8;
+      background: #000000;
     }
 
     .map-sec-inner {
@@ -2738,8 +2654,9 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: #000;
-      color: #E76F51;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.2em;
@@ -2751,7 +2668,7 @@
     .map-live-dot {
       width: 6px;
       height: 6px;
-      background: #E76F51;
+      background: #ffffff;
       border-radius: 50%;
       animation: mapBlink 1.8s ease-in-out infinite;
     }
@@ -2776,22 +2693,22 @@
     }
 
     .map-sec h2 {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: clamp(38px, 5.5vw, 62px);
       line-height: 1.04;
-      color: #000;
+      color: #ffffff;
       margin-bottom: 14px;
       letter-spacing: -0.01em;
     }
 
     .map-sec h2 em {
       font-style: italic;
-      color: #E76F51;
+      color: #ffffff;
     }
 
     .map-sub {
       font-size: 16px;
-      color: #777;
+      color: rgba(255, 255, 255, 0.72);
       max-width: 420px;
       line-height: 1.65;
       font-weight: 400;
@@ -2861,7 +2778,7 @@
     .map-tab-favicon {
       width: 14px;
       height: 14px;
-      background: #E76F51;
+      background: #ffffff;
       border-radius: 3px;
       display: flex;
       align-items: center;
@@ -2869,7 +2786,7 @@
       font-size: 8px;
       font-weight: 900;
       color: #fff;
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
     .map-tab-title {
@@ -3004,13 +2921,13 @@
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.2em;
-      color: #E76F51;
+      color: #ffffff;
       text-transform: uppercase;
       margin-bottom: 8px;
     }
 
     .map-sidebar-title {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 19px;
       color: #fff;
       line-height: 1.25;
@@ -3065,7 +2982,7 @@
 
     .map-card.map-active {
       background: rgba(231, 111, 81, 0.07);
-      border-left-color: #E76F51;
+      border-left-color: #ffffff;
     }
 
     .map-card-thumb {
@@ -3100,7 +3017,7 @@
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.16em;
-      color: #E76F51;
+      color: #ffffff;
       text-transform: uppercase;
       margin-bottom: 3px;
     }
@@ -3124,7 +3041,7 @@
     }
 
     .map-card-stars {
-      color: #E76F51;
+      color: #ffffff;
       font-size: 10px;
     }
 
@@ -3169,7 +3086,7 @@
 
     .map-cta-btn {
       width: 100%;
-      background: #E76F51;
+      background: #ffffff;
       color: #fff;
       border: none;
       border-radius: 10px;
@@ -3179,7 +3096,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -3210,14 +3127,14 @@
 
     .map-spots-count {
       font-size: 13px;
-      color: #aaa;
+      color: rgba(255, 255, 255, 0.68);
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
     .map-spots-count strong {
-      color: #000;
+      color: #ffffff;
       font-weight: 700;
     }
 
@@ -3230,13 +3147,13 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: #ddd;
+      background: rgba(255, 255, 255, 0.35);
       cursor: pointer;
       transition: background .2s, transform .2s;
     }
 
     .map-dot-ind.map-on {
-      background: #E76F51;
+      background: #ffffff;
       transform: scale(1.3);
     }
 
@@ -3323,7 +3240,7 @@
       }
 
       .map-card.map-active {
-        border-bottom-color: #E76F51;
+        border-bottom-color: #ffffff;
         border-left-color: transparent;
         background: rgba(231, 111, 81, 0.08);
       }
@@ -3458,6 +3375,724 @@
         <div class="map-dots-row" id="mapDotsRow"></div>
       </div>
 
+      <!-- ══════════════════════ SECTION 3: DISCOVER ══════════════════════ -->
+      <section class="disc-sec">
+
+        <!-- ROW 1 — scrolls RIGHT (→) -->
+        <div class="disc-track-wrap">
+          <div class="disc-track disc-track-right" id="trackRight">
+            <div class="disc-track-inner">
+
+              <!-- Card set A -->
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Jazz Night</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Jazz at Lionize</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#2d1b69 0%,#11998e 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Open Mic</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Open Mic Night</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#f093fb 0%,#f5576c 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">The Cave</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">The Cave Café</div>
+                  <div class="d-card-meta">Café</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Art Fair</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Vadodara Art Fair</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#43e97b 0%,#38f9d7 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">Tulip Touch</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">The Tulip Touch</div>
+                  <div class="d-card-meta">Café</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#fa709a 0%,#fee140 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Flea Market</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Sunday Flea Market</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#a18cd1 0%,#fbc2eb 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">SHOZO</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">SHOZO Cafe & Bakery</div>
+                  <div class="d-card-meta">Café</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#ffecd2 0%,#fcb69f 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Standup</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Standup Comedy</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <!-- Card set B (duplicate for seamless loop) -->
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Jazz Night</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Jazz at Lionize</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#2d1b69 0%,#11998e 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Open Mic</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Open Mic Night</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#f093fb 0%,#f5576c 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">The Cave</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">The Cave Café</div>
+                  <div class="d-card-meta">Café</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Art Fair</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Vadodara Art Fair</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#43e97b 0%,#38f9d7 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">Tulip Touch</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">The Tulip Touch</div>
+                  <div class="d-card-meta">Café</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#fa709a 0%,#fee140 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Flea Market</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Sunday Flea Market</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#a18cd1 0%,#fbc2eb 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">SHOZO</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">SHOZO Cafe & Bakery</div>
+                  <div class="d-card-meta">Café</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#ffecd2 0%,#fcb69f 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Standup</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Standup Comedy</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 2 — scrolls LEFT (←) -->
+        <div class="disc-track-wrap">
+          <div class="disc-track disc-track-left" id="trackLeft">
+            <div class="disc-track-inner">
+
+              <!-- Card set A -->
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#0f2027 0%,#203a43 50%,#2c5364 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">Waves Club</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Waves Club</div>
+                  <div class="d-card-meta">Café · Club</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#c94b4b 0%,#4b134f 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Dandiya Night</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Dandiya Night</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#f7971e 0%,#ffd200 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">Banyan Resort</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Banyan Paradise</div>
+                  <div class="d-card-meta">Venue</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#396afc 0%,#2948ff 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Film Screening</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Indie Film Night</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#11998e 0%,#38ef7d 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">Green Brew</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Green Brew Co.</div>
+                  <div class="d-card-meta">Café</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#ee0979 0%,#ff6a00 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Food Festival</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Street Food Fest</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#8360c3 0%,#2ebf91 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">Purple Haze</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Purple Haze Café</div>
+                  <div class="d-card-meta">Café</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#373b44 0%,#4286f4 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Night Run</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">5K Night Run</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <!-- Card set B (duplicate for seamless loop) -->
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#0f2027 0%,#203a43 50%,#2c5364 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">Waves Club</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Waves Club</div>
+                  <div class="d-card-meta">Café · Club</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#c94b4b 0%,#4b134f 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Dandiya Night</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Dandiya Night</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#f7971e 0%,#ffd200 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">Banyan Resort</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Banyan Paradise</div>
+                  <div class="d-card-meta">Venue</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#396afc 0%,#2948ff 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Film Screening</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Indie Film Night</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#11998e 0%,#38ef7d 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">Green Brew</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Green Brew Co.</div>
+                  <div class="d-card-meta">Café</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#ee0979 0%,#ff6a00 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Food Festival</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Street Food Fest</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#8360c3 0%,#2ebf91 100%);">
+                  <span class="d-card-tag d-tag-cafe">Café</span>
+                  <div class="d-card-img-label">Purple Haze</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">Purple Haze Café</div>
+                  <div class="d-card-meta">Café</div>
+                </div>
+              </div>
+
+              <div class="d-card">
+                <div class="d-card-img" style="background: linear-gradient(135deg,#373b44 0%,#4286f4 100%);">
+                  <span class="d-card-tag d-tag-event">Event</span>
+                  <div class="d-card-img-label">Night Run</div>
+                </div>
+                <div class="d-card-body">
+                  <div class="d-card-name">5K Night Run</div>
+                  <div class="d-card-meta">Event</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ══════════ SEC 3 STYLES ══════════ -->
+      <style>
+        /* ─── SECTION WRAPPER ─── */
+        .disc-sec {
+          background: #000000;
+          padding: 60px 0 70px;
+          overflow: hidden;
+          position: relative;
+          width: 100vw;
+          margin-left: calc(50% - 50vw);
+          margin-right: calc(50% - 50vw);
+        }
+
+        /* subtle divider glow from top */
+        .disc-sec::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 600px;
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(242, 237, 230, .1), transparent);
+        }
+
+        /* ─── HEADER ─── */
+        .disc-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 48px;
+          max-width: 1200px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 52px;
+        }
+
+        .disc-title {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-weight: 800;
+          font-size: clamp(32px, 4.5vw, 68px);
+          line-height: 1;
+          letter-spacing: -.04em;
+          color: #f2ede6;
+        }
+
+        .disc-line {
+          display: block;
+          overflow: hidden;
+          padding-bottom: .06em;
+        }
+
+        .disc-line-inner {
+          display: block;
+          animation: discLineUp .9s cubic-bezier(.22, 1, .36, 1) both;
+        }
+
+        .dl1 .disc-line-inner {
+          animation-delay: .08s;
+        }
+
+        .dl2 .disc-line-inner {
+          animation-delay: .18s;
+        }
+
+        .dl3 .disc-line-inner {
+          animation-delay: .28s;
+        }
+
+        @keyframes discLineUp {
+          from {
+            transform: translateY(102%);
+            opacity: 0;
+          }
+
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        /* ─── CTA PILLS ─── */
+        .disc-ctas {
+          display: flex;
+          gap: 8px;
+          flex-shrink: 0;
+          align-self: center;
+        }
+
+        .disc-pill {
+          display: inline-flex;
+          align-items: center;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          padding: 10px 20px;
+          border-radius: 100px;
+          white-space: nowrap;
+          letter-spacing: -.01em;
+          transition: transform .18s ease, opacity .18s ease, background .18s ease, border-color .18s ease;
+        }
+
+        .disc-pill:hover {
+          transform: translateY(-1px);
+        }
+
+        /* "Get matched" — white border outline, transparent bg */
+        .disc-pill-ghost {
+          background: transparent;
+          color: #111111;
+          border: 1px solid rgba(0, 0, 0, .6);
+        }
+
+        .disc-pill-ghost:hover {
+          border-color: rgba(0, 0, 0, .85);
+          background: rgba(0, 0, 0, .04);
+        }
+
+        /* "Find an Expert" — near-black solid, white text, very faint border */
+        .disc-pill-solid {
+          background: #1c1c1c;
+          color: #ffffff;
+          border: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .disc-pill-solid:hover {
+          background: #252525;
+          border-color: rgba(255, 255, 255, .18);
+        }
+
+        /* ─── TRACK WRAPPER (overflow mask) ─── */
+        .disc-track-wrap {
+          overflow: hidden;
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        .disc-track-wrap:last-child {
+          margin-bottom: 0;
+        }
+
+        /* ─── TRACK INNER (flex row) ─── */
+        .disc-track-inner {
+          display: flex;
+          gap: 10px;
+          width: max-content;
+          padding: 0;
+        }
+
+        /* ─── ANIMATIONS ─── */
+        .disc-track-right .disc-track-inner {
+          animation: scrollRight 88s linear infinite;
+        }
+
+        .disc-track-left .disc-track-inner {
+          animation: scrollLeft 88s linear infinite;
+        }
+
+        .disc-track-wrap:hover .disc-track-inner {
+          animation-play-state: paused;
+        }
+
+        @keyframes scrollRight {
+          from {
+            transform: translateX(0);
+          }
+
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        @keyframes scrollLeft {
+          from {
+            transform: translateX(-50%);
+          }
+
+          to {
+            transform: translateX(0);
+          }
+        }
+
+        /* ─── CARDS ─── */
+        .d-card {
+          flex-shrink: 0;
+          width: 437px;
+          border-radius: 10px;
+          overflow: visible;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .d-card:hover {
+          transform: translateY(-2px);
+          box-shadow: none;
+        }
+
+        /* Image area — matches ~200px height from reference */
+        .d-card-img {
+          width: 100%;
+          height: 288px;
+          position: relative;
+          display: flex;
+          align-items: flex-end;
+          padding: 12px;
+          border-radius: 10px;
+          overflow: hidden;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .d-card-tag {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 9px;
+          font-weight: 700;
+          letter-spacing: .12em;
+          text-transform: uppercase;
+          padding: 3px 8px;
+          border-radius: 100px;
+        }
+
+        .d-tag-event {
+          background: rgba(244, 135, 10, .18);
+          color: #f4870a;
+          border: 1px solid rgba(244, 135, 10, .3);
+        }
+
+        .d-tag-cafe {
+          background: rgba(242, 237, 230, .12);
+          color: #f2ede6;
+          border: 1px solid rgba(242, 237, 230, .18);
+        }
+
+        .d-card-img-label {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 22px;
+          font-weight: 800;
+          color: rgba(255, 255, 255, .18);
+          letter-spacing: -.02em;
+          line-height: 1;
+          user-select: none;
+        }
+
+        /* Text footer */
+        .d-card-body {
+          padding: 8px 2px 0;
+        }
+
+        .d-card-name {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          color: #f5f5f5;
+          margin-bottom: 2px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          letter-spacing: -.01em;
+        }
+
+        .d-card-meta {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 11px;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 0.62);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          letter-spacing: 0;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+          .disc-sec {
+            padding: 48px 0 56px;
+          }
+
+          .disc-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 0 24px;
+          }
+
+          .disc-title {
+            font-size: clamp(28px, 8vw, 44px);
+          }
+
+          .disc-track-inner {
+            gap: 8px;
+          }
+
+          .d-card {
+            width: min(78vw, 360px);
+          }
+
+          .d-card-img {
+            height: 220px;
+          }
+
+          .disc-track-right .disc-track-inner,
+          .disc-track-left .disc-track-inner {
+            animation-duration: 35s;
+          }
+        }
+
+        @media (max-width: 560px) {
+          .disc-sec {
+            padding: 36px 0 44px;
+          }
+
+          .disc-track-wrap {
+            margin-bottom: 8px;
+          }
+
+          .d-card {
+            width: 86vw;
+          }
+
+          .d-card-img {
+            height: 56vw;
+            min-height: 190px;
+            max-height: 250px;
+          }
+
+          .d-card-name {
+            font-size: 11px;
+          }
+
+          .d-card-meta {
+            font-size: 10px;
+          }
+        }
+      </style>
+
     </div>
   </section>
 
@@ -3553,225 +4188,6 @@
     })();
   </script>
 
-  <!-- ══════════════════════ AMPLIFY ══════════════════════ -->
-  <div class="amp">
-    <div class="amp-grid">
-      <div class="amp-sticky">
-        <div class="ey">The Problem</div>
-        <h2 class="sec-h">Every weekend,<br>the same story.</h2>
-        <p class="sec-p">You open Instagram, check BookMyShow, ask the group chat. An hour later, you're still on the
-          couch. This isn't a you problem — it's a curation problem.</p>
-      </div>
-      <div class="amp-scroll">
-        <div class="pain rev">
-          <div class="pain-n">Problem 01</div>
-          <div class="pain-t">50 options, zero conviction</div>
-          <div class="pain-b">Every platform gives you volume, not a verdict. BookMyShow lists everything. Instagram
-            shows you everything. You end up choosing nothing.</div>
-        </div>
-        <div class="pain rev">
-          <div class="pain-n">Problem 02</div>
-          <div class="pain-t">You can't trust what you find</div>
-          <div class="pain-b">That glowing review? Paid for. That "must-visit" tag? Sponsored. When everything looks
-            curated, nothing actually is. You deserve better signal.</div>
-        </div>
-        <div class="pain rev">
-          <div class="pain-n">Problem 03</div>
-          <div class="pain-t">The best experiences go unnoticed</div>
-          <div class="pain-b">The best pop-up of the year happened last Saturday. You heard about it Monday. Great hosts
-            can't reach the right audience — and you miss out.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ══════════════════════ STORY ══════════════════════ -->
-  <div class="wrap" id="about">
-    <div class="story-grid">
-      <!-- Visual -->
-      <div class="card-stack rev">
-        <div class="sc sc1">
-          <div class="sc-ey">Café</div>
-          <div class="sc-n">The Garden Table</div>
-          <div class="sc-s">Fatehgunj · Hidden gem</div>
-          <div class="sc-scores"><span class="sc-score"><strong>10</strong>/10 Vibe</span><span
-              class="sc-score"><strong>8</strong>/10 Food</span></div>
-        </div>
-        <div class="sc sc2">
-          <div class="sc-ey">Event</div>
-          <div class="sc-n">Sunset Sessions</div>
-          <div class="sc-s">Mar 15 · Free Entry</div>
-          <div class="sc-scores"><span class="sc-score"><strong>Free</strong></span><span class="sc-score"><strong>7
-                pm</strong></span></div>
-        </div>
-        <div class="sc sc3">
-          <div class="sc-ey">Café</div>
-          <div class="sc-n">Café Nomad</div>
-          <div class="sc-s">Alkapuri · Best pour-over</div>
-          <div class="sc-scores"><span class="sc-score"><strong>9</strong>/10 Coffee</span><span
-              class="sc-score"><strong>8</strong>/10 Vibe</span></div>
-        </div>
-      </div>
-
-      <!-- Text -->
-      <div>
-        <div class="ey rev">Our Story</div>
-        <h2 class="sec-h rev">Built by locals,<br><span class="it">for locals.</span></h2>
-        <p class="sec-p rev">We got tired of the same five places. So we started hunting. Turns out Vadodara has
-          extraordinary spots — they're just buried under noise. We built HUNTERS to fix that.</p>
-
-        <div class="steps">
-          <div class="step rev">
-            <span class="step-n">01</span>
-            <div>
-              <div class="step-t">We visit every place ourselves</div>
-              <div class="step-b">No press releases. No third-party reviews. Every café and event listed has been
-                experienced by our team, firsthand.</div>
-            </div>
-          </div>
-          <div class="step rev">
-            <span class="step-n">02</span>
-            <div>
-              <div class="step-t">We only list what we'd recommend to a friend</div>
-              <div class="step-b">The bar is simple: would I tell someone I care about to spend their one free Saturday
-                here? If yes — it's on HUNTERS.</div>
-            </div>
-          </div>
-          <div class="step rev">
-            <span class="step-n">03</span>
-            <div>
-              <div class="step-t">We never take money for placement. Ever.</div>
-              <div class="step-b">The moment a listing is paid for, it stops being a recommendation. Our integrity isn't
-                a feature — it's the product.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ══════════════════════ PICKS ══════════════════════ -->
-  <div class="wrap" id="featured">
-    <div class="picks-head">
-      <div>
-        <div class="ey rev">This Week's Picks</div>
-        <h2 class="sec-h rev">Vadodara's best.<br><span class="it">Verified by us.</span></h2>
-      </div>
-      <a href="cafes.html" class="see-all rev">See all picks</a>
-    </div>
-
-    <div class="picks-grid">
-
-      <!-- Card 1: The Brewery -->
-      <div class="card rev">
-        <div class="c-thumb" style="background: linear-gradient(150deg, #0a1a10 0%, #050e08 100%);">
-          <div class="c-emo">🍺</div>
-          <span class="c-chip chip-cafe">Café</span>
-          <span class="c-badge">Worth It ✓</span>
-        </div>
-        <div class="c-body">
-          <div class="c-name">The Brewery</div>
-          <div class="c-loc">📍 Alembic Art District, Vadodara</div>
-          <div class="c-desc">Gujarat's first non-alcoholic microbrewery inside a repurposed industrial building.
-            Kombucha, ginger beer, coffee. Free live music every Thursday. Go for the ambience first, coffee second.
-          </div>
-          <div class="c-scores"><span class="c-sc"><strong>9</strong>/10 Vibe</span><span
-              class="c-sc"><strong>6</strong>/10 Food</span><span class="c-sc"><strong>Thu</strong> Live Music</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2: Soul Brew Coffee -->
-      <div class="card rev" style="transition-delay:.11s">
-        <div class="c-thumb" style="background: linear-gradient(150deg, #1a1005 0%, #0d0800 100%);">
-          <div class="c-emo">☕</div>
-          <span class="c-chip chip-cafe">Café</span>
-          <span class="c-badge">Worth It ✓</span>
-        </div>
-        <div class="c-body">
-          <div class="c-name">Soul Brew Coffee</div>
-          <div class="c-loc">📍 Gotri Road, Vadodara</div>
-          <div class="c-desc">Freshly roasted, freshly brewed — on-site roastery, no shortcuts. If you actually care
-            about coffee (not just the gram), this is your place. Order the Long Black or Affogato. Skip nothing.</div>
-          <div class="c-scores"><span class="c-sc"><strong>10</strong>/10 Coffee</span><span
-              class="c-sc"><strong>₹400–600</strong> for two</span></div>
-        </div>
-      </div>
-
-      <!-- Card 3: Creekyard -->
-      <div class="card rev" style="transition-delay:.22s">
-        <div class="c-thumb" style="background: linear-gradient(150deg, #0c1a10 0%, #060e09 100%);">
-          <div class="c-emo">🌊</div>
-          <span class="c-chip chip-cafe">Hidden Gem</span>
-          <span class="c-badge">Underrated ✓</span>
-        </div>
-        <div class="c-body">
-          <div class="c-name">Creekyard</div>
-          <div class="c-loc">📍 Bhayli, Vadodara</div>
-          <div class="c-desc">Open seating near a river with a mini waterfall. Boho decor, cozy corners, criminally low
-            prices. The price-to-vibe ratio is unmatched in Vadodara. Nobody talks about this enough.</div>
-          <div class="c-scores"><span class="c-sc"><strong>From ₹120</strong></span><span class="c-sc"><strong>6:30
-                PM</strong> onwards</span></div>
-        </div>
-      </div>
-
-      <!-- Card 4: Café Bistro -->
-      <div class="card rev" style="transition-delay:.33s">
-        <div class="c-thumb" style="background: linear-gradient(150deg, #1a0e14 0%, #0d070a 100%);">
-          <div class="c-emo">♟️</div>
-          <span class="c-chip chip-cafe">Café</span>
-          <span class="c-badge">Local Staple ✓</span>
-        </div>
-        <div class="c-body">
-          <div class="c-name">Café Bistro</div>
-          <div class="c-loc">📍 Race Course Road, Vadodara</div>
-          <div class="c-desc">Oversized chessboard outside, always packed inside. Order the butterscotch or Oreo cold
-            coffee — both are the best in the city. An old-school Vadodara staple that earns its reputation every day.
-          </div>
-          <div class="c-scores"><span class="c-sc"><strong>9</strong>/10 Cold Coffee</span><span
-              class="c-sc"><strong>8</strong>/10 Vibe</span></div>
-        </div>
-      </div>
-
-      <!-- Card 5: VARIETEA -->
-      <div class="card rev" style="transition-delay:.44s">
-        <div class="c-thumb" style="background: linear-gradient(150deg, #0f1a0a 0%, #080e05 100%);">
-          <div class="c-emo">🍵</div>
-          <span class="c-chip chip-cafe">Café</span>
-          <span class="c-badge">Worth It ✓</span>
-        </div>
-        <div class="c-body">
-          <div class="c-name">VARIETEA</div>
-          <div class="c-loc">📍 Vadodara</div>
-          <div class="c-desc">Quality tea from the finest Darjeeling and Assam leaves. Regular open mic nights. Try the
-            Creole Pasta or Cheesy Fiesta. Chai + live events is a rare combo — they make it work.</div>
-          <div class="c-scores"><span class="c-sc"><strong>9</strong>/10 Tea</span><span
-              class="c-sc"><strong>₹500</strong> for two</span><span class="c-sc"><strong>Open Mics</strong></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 6: Event — We The Flea -->
-      <div class="card rev" style="transition-delay:.55s">
-        <div class="c-thumb ct3">
-          <div class="c-emo">🛍️</div>
-          <span class="c-chip chip-evt">Event</span>
-          <span class="c-badge">Mar 20 · ₹50 Entry</span>
-        </div>
-        <div class="c-body">
-          <div class="c-name">We The Flea</div>
-          <div class="c-loc">📍 Vagheshwari Farm, Vadodara</div>
-          <div class="c-desc">Flea market with food stalls, local vendors, and live music — all in one. ₹50 entry.
-            Starts 4 PM. Your best bet this weekend by a distance.</div>
-          <div class="c-scores"><span class="c-sc"><strong>₹50</strong> Entry</span><span class="c-sc"><strong>4:00
-                PM</strong> onwards</span><span class="c-sc"><strong>Mar 20</strong></span></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 
 
   <!-- ══════════════════════ TESTIMONIALS + BANNER MERGED ══════════════════════ -->
@@ -3996,43 +4412,7 @@
     </div>
   </div><!-- /proof-merged -->
 
-  <!-- ══════════════════════ OFFER ══════════════════════ -->
-  <div id="how">
-    <div class="offer-grid">
-      <div class="offer-sticky">
-        <div class="ey">How It Works</div>
-        <h2 class="sec-h">Simple for you.<br><span class="it">Hard work for us.</span></h2>
-        <p class="sec-p">We do the legwork so your Saturday isn't wasted. Here's exactly what happens before anything
-          reaches you.</p>
-      </div>
-      <div class="offer-scroll">
-        <div class="oc rev">
-          <div class="oc-icon">🔍</div>
-          <div class="oc-t">We hunt. You don't have to.</div>
-          <div class="oc-b">Our team visits every spot and attends every event before it makes the list. First-hand,
-            every time. No press releases accepted as fact.</div>
-        </div>
-        <div class="oc rev">
-          <div class="oc-icon">⚡</div>
-          <div class="oc-t">Curated with ruthless standards.</div>
-          <div class="oc-b">Most places don't make the cut. Our standard: would I tell someone I care about to go here
-            on their one free Saturday? Average doesn't pass.</div>
-        </div>
-        <div class="oc rev">
-          <div class="oc-icon">✓</div>
-          <div class="oc-t">Honest. Always. No softening.</div>
-          <div class="oc-b">If a place is overrated, we say so. If one thing is great and another is bad, we say both.
-            No corporate language, no diplomatic vagueness.</div>
-        </div>
-        <div class="oc rev">
-          <div class="oc-icon">🚫</div>
-          <div class="oc-t">Zero paid placements. Forever.</div>
-          <div class="oc-b">No venue has ever paid to appear here. The moment that changes, this stops being useful —
-            and we know it. Our independence is the entire point.</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Offer section removed -->
 
 
   <!-- ══════════════════════ CTA ══════════════════════ -->
@@ -4046,7 +4426,7 @@
     </h2>
     <p class="cta-sub rev">Your next great Saturday is already out there. Stop letting it pass you by.</p>
     <div class="cta-btns rev">
-      <a href="#featured" class="btn-red">Start Hunting →</a>
+      <a href="#featured" class="btn-primary">Start Hunting →</a>
       <a href="#submit" class="btn-outline">Submit a Spot</a>
     </div>
   </div>
@@ -4161,11 +4541,11 @@
             stroke-linecap="round" fill="none" />
           <g transform="translate(88, 142) rotate(-15)">
             <path d="M2,0 L18,0 L16,32 L4,32 Z" fill="#f5f0e8" opacity=".95" />
-            <path d="M1,8 L19,8 L18,18 L2,18 Z" fill="#e63f1e" opacity=".85" />
+            <path d="M1,8 L19,8 L18,18 L2,18 Z" fill="#ffffff" opacity=".85" />
             <rect x="5" y="2" width="4" height="4" rx="1" fill="#b8e0f5" opacity=".8" />
             <rect x="11" y="3" width="3" height="3" rx="1" fill="#b8e0f5" opacity=".6" />
-            <rect x="13" y="-14" width="2.5" height="18" rx="1.2" fill="#e63f1e" />
-            <path d="M14.25,-14 Q18,-20 16,-25" stroke="#e63f1e" stroke-width="2.5" fill="none"
+            <rect x="13" y="-14" width="2.5" height="18" rx="1.2" fill="#ffffff" />
+            <path d="M14.25,-14 Q18,-20 16,-25" stroke="#ffffff" stroke-width="2.5" fill="none"
               stroke-linecap="round" />
             <path d="M1,0 Q10,-4 19,0" fill="#d4cfc8" stroke="#c0bab2" stroke-width=".5" />
           </g>
