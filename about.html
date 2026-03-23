@@ -12,8 +12,9 @@
     rel="stylesheet">
   <style>
     :root {
-      --red: #e63f1e;
-      --red-bright: #ff5230;
+      --primary: #ffffff;
+      --red: #ffffff;
+      --red-bright: #ffffff;
       --bg: #080808;
       --bg1: #0d0d0d;
       --bg2: #111111;
@@ -50,7 +51,7 @@
     body {
       background: #050505;
       color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden
     }
 
@@ -64,7 +65,7 @@
     }
 
     ::selection {
-      background: var(--red);
+      background: var(--primary);
       color: #fff
     }
 
@@ -154,7 +155,7 @@
       width: 28px;
       height: 28px;
       border-radius: 7px;
-      background: var(--red);
+      background: var(--primary);
       overflow: hidden;
       flex-shrink: 0
     }
@@ -167,7 +168,7 @@
     }
 
     .n-name {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: 14px;
       letter-spacing: .1em;
@@ -246,20 +247,20 @@
     .n-cta {
       font-size: 12.5px;
       font-weight: 700;
-      color: #fff;
+      color: #000;
       padding: 8px 18px;
       border-radius: 100px;
-      background: var(--red);
+      background: var(--primary);
       border: 1px solid rgba(255, 255, 255, .08);
-      box-shadow: 0 2px 12px rgba(230, 63, 30, .35);
+      box-shadow: 0 2px 12px rgba(255, 255, 255, .15);
       transition: background .2s, transform .15s var(--spring), box-shadow .3s;
       white-space: nowrap
     }
 
     .n-cta:hover {
-      background: var(--red-bright);
+      background: var(--primary);
       transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(230, 63, 30, .5)
+      box-shadow: 0 6px 24px rgba(255, 255, 255, .2)
     }
 
     .n-menu-btn {
@@ -303,7 +304,7 @@
     }
 
     .n-mobile-menu a {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 32px;
       color: rgba(242, 237, 230, .3);
@@ -321,8 +322,8 @@
 
     .n-mobile-menu .nm-cta {
       margin-top: 24px;
-      background: var(--red);
-      color: #fff !important;
+      background: var(--primary);
+      color: #000 !important;
       border-radius: 100px;
       padding: 16px 40px !important;
       font-size: 16px !important;
@@ -342,7 +343,7 @@
       font-weight: 700;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--primary);
       margin-bottom: 16px;
       display: flex;
       align-items: center;
@@ -353,11 +354,11 @@
       content: '';
       width: 18px;
       height: 1px;
-      background: var(--red)
+      background: var(--primary)
     }
 
     .sec-h {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: clamp(34px, 3.8vw, 52px);
       line-height: 1.04;
@@ -373,7 +374,7 @@
     }
 
     .accent {
-      color: var(--red)
+      color: var(--primary)
     }
 
     @keyframes fadeUp {
@@ -424,21 +425,21 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(230, 63, 30, .07);
-      border: 1px solid rgba(230, 63, 30, .18);
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
       border-radius: 100px;
       padding: 5px 14px;
       font-size: 10.5px;
       font-weight: 700;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--primary);
       margin-bottom: 32px;
       animation: fadeUp .7s var(--ease-out) .1s both
     }
 
     .pg-h {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: clamp(52px, 8vw, 100px);
       line-height: .92;
@@ -524,10 +525,10 @@
     }
 
     .stat-n {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: clamp(36px, 4vw, 52px);
-      color: var(--red);
+      color: var(--primary);
       line-height: 1;
       margin-bottom: 8px;
       letter-spacing: -.03em
@@ -557,10 +558,10 @@
     }
 
     .v-num {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: 11px;
-      color: var(--red);
+      color: var(--primary);
       min-width: 24px;
       margin-top: 3px
     }
@@ -595,7 +596,7 @@
     }
 
     .team-card:hover {
-      border-color: rgba(230, 63, 30, .18);
+      border-color: rgba(255, 255, 255, .1);
       transform: translateY(-4px)
     }
 
@@ -607,14 +608,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: 22px;
       color: #fff
     }
 
     .av-a {
-      background: linear-gradient(135deg, #e63f1e, #a52a0e)
+      background: linear-gradient(135deg, #ffffff, #333333)
     }
 
     .av-b {
@@ -626,7 +627,7 @@
     }
 
     .team-name {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 16px;
       color: var(--ink);
@@ -635,7 +636,7 @@
 
     .team-role {
       font-size: 12px;
-      color: var(--red);
+      color: var(--primary);
       font-weight: 600;
       letter-spacing: .06em;
       text-transform: uppercase;
@@ -663,7 +664,7 @@
       position: absolute;
       top: -20px;
       left: 40px;
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 200px;
       color: rgba(61, 140, 124, .07);
       pointer-events: none;
@@ -671,7 +672,7 @@
     }
 
     .manifesto-text {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-style: italic;
       font-size: clamp(20px, 2.5vw, 30px);
       line-height: 1.6;
@@ -700,7 +701,7 @@
       bottom: -30px;
       left: 50%;
       transform: translateX(-50%);
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: clamp(80px, 14vw, 180px);
       letter-spacing: -.04em;
@@ -733,7 +734,7 @@
       width: 36px;
       height: 36px;
       border-radius: 9px;
-      background: var(--red);
+      background: var(--primary);
       overflow: hidden;
       flex-shrink: 0
     }
@@ -746,7 +747,7 @@
     }
 
     .ft-name {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: 18px;
       letter-spacing: .1em;
@@ -824,7 +825,7 @@
       padding: 10px 16px;
       font-size: 13px;
       color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       outline: none;
       transition: border-color .2s
     }
@@ -838,21 +839,21 @@
     }
 
     .ft-nl-btn {
-      background: var(--red);
+      background: var(--primary);
       color: #fff;
       border: none;
       border-radius: 100px;
       padding: 10px 18px;
       font-size: 13px;
       font-weight: 700;
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       cursor: pointer;
       white-space: nowrap;
       transition: background .2s
     }
 
     .ft-nl-btn:hover {
-      background: var(--red-bright)
+      background: var(--primary)
     }
 
     .ft-nl-note {
@@ -905,7 +906,7 @@
     }
 
     .foot-made span {
-      color: var(--red)
+      color: var(--primary)
     }
 
     /* RESPONSIVE */
@@ -1080,9 +1081,9 @@
         <span class="n-name">HUNTERS</span>
       </a>
       <ul class="n-links">
+        <li><a href="index.html">Home</a></li>
         <li><a href="cafes.html">Cafes</a></li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="about.html" class="active">About</a></li>
         <li><a href="suggest.html">Suggest</a></li>
       </ul>
       <div class="n-right">
@@ -1094,9 +1095,9 @@
     </div>
   </nav>
   <div class="n-mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
     <a href="cafes.html">Cafes</a>
     <a href="events.html">Events</a>
-    <a href="about.html">About</a>
     <a href="suggest.html">Suggest</a>
     <a href="cafes.html" class="nm-cta">Start Hunting →</a>
   </div>
@@ -1107,7 +1108,7 @@
       <div class="pg-glow"></div>
       <div class="pg-badge">Our Story</div>
       <h1 class="pg-h">Built by locals.<br><span
-          style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--red)">For
+          style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:var(--primary)">For
           locals.</span></h1>
       <p class="pg-sub">We got tired of the same five places. So we started hunting. Turns out Vadodara has
         extraordinary spots — they're just buried under noise.</p>
@@ -1228,701 +1229,7 @@
 
   </div>
 
-  <!-- ══════════════════════ 4,000 WEEKS ══════════════════════ -->
-  <div id="weeks-section">
-    <style>
-      /* ── 4,000 WEEKS SCOPED STYLES ── */
-      #weeks-section {
-        --w-black: #080808;
-        --w-white: #F5F3EE;
-        --w-orange: #E76F51;
-        --w-dim: #1C1C1C;
-        --w-muted: #3a3a3a;
-        --w-text-dim: #555;
-        background: var(--w-black);
-        font-family: 'DM Mono', monospace;
-        overflow-x: hidden;
-        color: var(--w-white);
-      }
-
-      /* INTRO */
-      #weeks-intro {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 40px;
-        position: relative;
-      }
-
-      .weeks-intro-brand {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 11px;
-        letter-spacing: 8px;
-        color: var(--w-orange);
-        margin-bottom: 48px;
-        animation: wFadeUp 1s ease both 0.2s;
-      }
-
-      .weeks-intro-h1 {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: clamp(72px, 16vw, 160px);
-        line-height: 0.88;
-        animation: wFadeUp 1s ease both 0.4s;
-        color: var(--w-white);
-      }
-
-      .weeks-intro-h1 .weeks-accent {
-        color: var(--w-orange);
-      }
-
-      .weeks-intro-sub {
-        font-size: 12px;
-        color: var(--w-text-dim);
-        letter-spacing: 1px;
-        margin-top: 28px;
-        line-height: 1.8;
-        animation: wFadeUp 1s ease both 0.6s;
-      }
-
-      .weeks-scroll-hint {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        animation: wFadeUp 1s ease both 1s;
-      }
-
-      .weeks-scroll-hint span {
-        font-size: 9px;
-        letter-spacing: 3px;
-        color: var(--w-muted);
-      }
-
-      .weeks-scroll-arrow {
-        width: 1px;
-        height: 40px;
-        background: linear-gradient(to bottom, var(--w-muted), transparent);
-        animation: wScrollPulse 2s ease-in-out infinite;
-      }
-
-      @keyframes wScrollPulse {
-
-        0%,
-        100% {
-          opacity: 0.3;
-          transform: scaleY(1);
-        }
-
-        50% {
-          opacity: 1;
-          transform: scaleY(1.2);
-        }
-      }
-
-      /* SCROLL CONTAINER */
-      #weeks-scroll-container {
-        display: flex;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 24px;
-        position: relative;
-      }
-
-      /* LEFT STICKY GRID */
-      #weeks-grid-sticky {
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        width: 560px;
-        min-width: 560px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        padding: 40px 40px 40px 0;
-        flex-shrink: 0;
-      }
-
-      .weeks-grid-label-top {
-        font-size: 9px;
-        letter-spacing: 3px;
-        color: var(--w-muted);
-        margin-bottom: 16px;
-      }
-
-      .weeks-grid-legend {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 20px;
-      }
-
-      .weeks-leg {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 9px;
-        letter-spacing: 1.5px;
-        color: var(--w-text-dim);
-      }
-
-      .weeks-leg-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        flex-shrink: 0;
-      }
-
-      /* RIGHT SECTIONS */
-      #weeks-sections {
-        flex: 1;
-        padding-left: 80px;
-      }
-
-      .weeks-section {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 80px 0;
-        position: relative;
-      }
-
-      .weeks-section-tag {
-        font-size: 9px;
-        letter-spacing: 4px;
-        color: var(--w-orange);
-        margin-bottom: 20px;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.7s ease;
-      }
-
-      .weeks-section-tag.wvisible {
-        opacity: 1;
-        transform: none;
-      }
-
-      .weeks-section-num {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 120px;
-        line-height: 1;
-        color: var(--w-dim);
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        user-select: none;
-        pointer-events: none;
-      }
-
-      .weeks-section-title {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: clamp(40px, 5vw, 64px);
-        line-height: 1;
-        margin-bottom: 12px;
-        opacity: 0;
-        transform: translateY(24px);
-        transition: all 0.7s ease 0.1s;
-        color: var(--w-white);
-      }
-
-      .weeks-section-title.wvisible {
-        opacity: 1;
-        transform: none;
-      }
-
-      .weeks-section-title .wo {
-        color: var(--w-orange);
-      }
-
-      .weeks-section-body {
-        font-size: 13px;
-        line-height: 2;
-        color: var(--w-text-dim);
-        max-width: 380px;
-        opacity: 0;
-        transform: translateY(24px);
-        transition: all 0.7s ease 0.2s;
-      }
-
-      .weeks-section-body.wvisible {
-        opacity: 1;
-        transform: none;
-      }
-
-      .weeks-section-body strong {
-        color: var(--w-white);
-        font-weight: 500;
-      }
-
-      .weeks-section-italic {
-        font-family: 'Playfair Display', serif;
-        font-style: italic;
-        font-size: 18px;
-        color: var(--w-orange);
-        margin-top: 24px;
-        opacity: 0;
-        transform: translateY(16px);
-        transition: all 0.7s ease 0.35s;
-      }
-
-      .weeks-section-italic.wvisible {
-        opacity: 1;
-        transform: none;
-      }
-
-      .weeks-week-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--w-dim);
-        border: 1px solid #2a2a2a;
-        padding: 8px 14px;
-        border-radius: 2px;
-        font-size: 10px;
-        letter-spacing: 2px;
-        color: var(--w-text-dim);
-        margin-top: 28px;
-        opacity: 0;
-        transform: translateY(16px);
-        transition: all 0.7s ease 0.45s;
-      }
-
-      .weeks-week-badge.wvisible {
-        opacity: 1;
-        transform: none;
-      }
-
-      .weeks-week-badge .wnum {
-        color: var(--w-orange);
-        font-size: 13px;
-      }
-
-      /* FINAL */
-      #weeks-final {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 80px 40px;
-        position: relative;
-      }
-
-      .weeks-final-sub {
-        font-size: 10px;
-        letter-spacing: 5px;
-        color: var(--w-orange);
-        margin-bottom: 24px;
-      }
-
-      .weeks-final-h {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: clamp(48px, 10vw, 100px);
-        line-height: 0.9;
-        margin-bottom: 32px;
-        color: var(--w-white);
-      }
-
-      .weeks-final-body {
-        font-size: 13px;
-        line-height: 2;
-        color: var(--w-text-dim);
-        max-width: 420px;
-        margin-bottom: 48px;
-      }
-
-      .weeks-final-body strong {
-        color: var(--w-white);
-      }
-
-      .weeks-cta-btn {
-        display: inline-block;
-        background: var(--w-orange);
-        color: #080808;
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 18px;
-        letter-spacing: 4px;
-        padding: 18px 52px;
-        border-radius: 2px;
-        cursor: pointer;
-        border: none;
-        transition: transform 0.2s, box-shadow 0.2s;
-        text-decoration: none;
-      }
-
-      .weeks-cta-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 40px rgba(231, 111, 81, 0.3);
-      }
-
-      .weeks-final-brand {
-        margin-top: 64px;
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 11px;
-        letter-spacing: 8px;
-        color: var(--w-muted);
-      }
-
-      /* PROGRESS BAR */
-      #weeks-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 2px;
-        background: var(--w-orange);
-        z-index: 999;
-        transition: width 0.1s linear;
-        width: 0%;
-        pointer-events: none;
-      }
-
-      @keyframes wFadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 768px) {
-        #weeks-scroll-container {
-          flex-direction: column;
-          padding: 0;
-        }
-
-        #weeks-grid-sticky {
-          position: relative;
-          height: auto;
-          width: 100%;
-          min-width: unset;
-          padding: 40px 20px 20px;
-          align-items: center;
-        }
-
-        #weeks-sections {
-          padding: 0 20px;
-        }
-
-        .weeks-section-num {
-          display: none;
-        }
-
-        .weeks-section-body {
-          max-width: 100%;
-        }
-      }
-    </style>
-
-    <div id="weeks-progress"></div>
-
-    <!-- INTRO -->
-    <section id="weeks-intro">
-      <div class="weeks-intro-brand">HUNTERS &nbsp;·&nbsp; VADODARA</div>
-      <h2 class="weeks-intro-h1">4,000<br><span class="weeks-accent">WEEKS.</span></h2>
-      <p class="weeks-intro-sub">
-        that's the average human life.<br>
-        scroll to see where yours actually goes.
-      </p>
-      <div class="weeks-scroll-hint">
-        <span>SCROLL</span>
-        <div class="weeks-scroll-arrow"></div>
-      </div>
-    </section>
-
-    <!-- MAIN -->
-    <div id="weeks-scroll-container">
-
-      <!-- LEFT STICKY GRID -->
-      <div id="weeks-grid-sticky">
-        <div class="weeks-grid-label-top">YOUR &nbsp;4,000 &nbsp;WEEKS</div>
-        <canvas id="weeks-dot-canvas"></canvas>
-        <div class="weeks-grid-legend">
-          <div class="weeks-leg">
-            <div class="weeks-leg-dot" style="background:#1a1a1a;border:1px solid #333"></div>SLEEPING
-          </div>
-          <div class="weeks-leg">
-            <div class="weeks-leg-dot" style="background:#252525;border:1px solid #3a3a3a"></div>WORK / SCHOOL
-          </div>
-          <div class="weeks-leg">
-            <div class="weeks-leg-dot" style="background:#2a1810"></div>CHORES &amp; EATING
-          </div>
-          <div class="weeks-leg">
-            <div class="weeks-leg-dot" style="background:#E76F51"></div>FREE TIME
-          </div>
-          <div class="weeks-leg">
-            <div class="weeks-leg-dot" style="background:#0d0d0d;border:1px solid #1a1a1a"></div>GONE (PAST)
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT SCROLL SECTIONS -->
-      <div id="weeks-sections">
-
-        <div class="weeks-section" data-fill="0" data-weeks="0">
-          <div class="weeks-section-num">01</div>
-          <div class="weeks-section-tag">WEEK 1 · AGE 0</div>
-          <h3 class="weeks-section-title">YOU WERE<br><span class="wo">BORN.</span></h3>
-          <p class="weeks-section-body">
-            4,160 dots. Each one is a week of your life.<br><br>
-            Right now they're all there. <strong>Full. Untouched.</strong><br>
-            You haven't wasted a single one yet.
-          </p>
-          <div class="weeks-section-italic">The clock starts now.</div>
-        </div>
-
-        <div class="weeks-section" data-fill="936" data-weeks="936">
-          <div class="weeks-section-num">02</div>
-          <div class="weeks-section-tag">WEEKS 1–936 · AGE 0–18</div>
-          <h3 class="weeks-section-title">SCHOOL.<br><span class="wo">HOMEWORK.</span><br>GROWING UP.</h3>
-          <p class="weeks-section-body">
-            <strong>936 weeks.</strong> You spent them learning to walk, surviving school, sitting in classrooms, doing
-            homework you hated.<br><br>
-            You didn't choose most of this. Nobody does.<br>
-            These weeks happened <strong>to</strong> you.
-          </p>
-          <div class="weeks-section-italic">"I'll live when I grow up."</div>
-          <div class="weeks-week-badge"><span class="wnum">936</span>&nbsp;weeks gone</div>
-        </div>
-
-        <div class="weeks-section" data-fill="1300" data-weeks="1300">
-          <div class="weeks-section-num">03</div>
-          <div class="weeks-section-tag">SLEEPING · ALL YOUR LIFE</div>
-          <h3 class="weeks-section-title">A THIRD OF IT.<br><span class="wo">ASLEEP.</span></h3>
-          <p class="weeks-section-body">
-            You'll sleep roughly <strong>8 hours a day</strong> your whole life.<br>
-            That's 1,387 weeks — <strong>gone, unconscious.</strong><br><br>
-            You can't negotiate this one. Your body needs it.<br>
-            We're not counting these against you.
-          </p>
-          <div class="weeks-section-italic">Non-negotiable.</div>
-          <div class="weeks-week-badge"><span class="wnum">~1,387</span>&nbsp;weeks sleeping</div>
-        </div>
-
-        <div class="weeks-section" data-fill="1900" data-weeks="1900">
-          <div class="weeks-section-num">04</div>
-          <div class="weeks-section-tag">AGE 22–65 · THE GRIND</div>
-          <h3 class="weeks-section-title">WORKING.<br><span class="wo">EVERY WEEK.</span></h3>
-          <p class="weeks-section-body">
-            If you work a standard career — <strong>40+ years, 50 weeks a year</strong> — that's another 2,000 weeks
-            spoken for. Meetings. Deadlines. Commutes.<br><br>
-            Some of it meaningful. Most of it <strong>not what you planned at 18.</strong>
-          </p>
-          <div class="weeks-section-italic">"I'll travel when I retire."</div>
-          <div class="weeks-week-badge"><span class="wnum">~2,000</span>&nbsp;weeks working</div>
-        </div>
-
-        <div class="weeks-section" data-fill="2200" data-weeks="2200">
-          <div class="weeks-section-num">05</div>
-          <div class="weeks-section-tag">THE TRUTH</div>
-          <h3 class="weeks-section-title">WHAT'S<br><span class="wo">ACTUALLY LEFT.</span></h3>
-          <p class="weeks-section-body">
-            After sleeping, schooling, working, eating, commuting —<br>
-            <strong>you have roughly 400–600 weeks of real free time.</strong><br><br>
-            Not days. <strong>Weeks.</strong> Your entire adult free time.<br>
-            All the weekends, evenings, holidays. That's it.
-          </p>
-          <div class="weeks-section-italic">~500 weeks to actually live.</div>
-          <div class="weeks-week-badge"><span class="wnum">~500</span>&nbsp;free weeks total</div>
-        </div>
-
-        <div class="weeks-section" data-fill="2450" data-weeks="2450">
-          <div class="weeks-section-num">06</div>
-          <div class="weeks-section-tag">THE PROBLEM</div>
-          <h3 class="weeks-section-title">AND YOU'RE<br><span class="wo">SCROLLING.</span></h3>
-          <p class="weeks-section-body">
-            The average person spends <strong>6–7 hours a week</strong> on their phone — mindlessly scrolling through
-            content they won't remember.<br><br>
-            That's <strong>~100 weeks of your free time</strong> staring at a screen, never going anywhere, never doing
-            anything, <strong>just consuming.</strong>
-          </p>
-          <div class="weeks-section-italic">"I'll do it next weekend."</div>
-          <div class="weeks-week-badge"><span class="wnum">~100</span>&nbsp;weeks scrolled away</div>
-        </div>
-
-        <div class="weeks-section" data-fill="2600" data-weeks="2600">
-          <div class="weeks-section-num">07</div>
-          <div class="weeks-section-tag">RIGHT NOW · VADODARA</div>
-          <h3 class="weeks-section-title">YOU'RE<br><span class="wo">22.</span><br>THIS WEEKEND.</h3>
-          <p class="weeks-section-body">
-            You're young. You're in Vadodara. It's the weekend.<br><br>
-            <strong>There's a rooftop cafe that opened last month.</strong> A jazz night at a venue you've never been
-            to. A gallery show closing Sunday.<br><br>
-            And you're on Instagram, watching someone else live.
-          </p>
-          <div class="weeks-section-italic">This is the moment. Not later.</div>
-        </div>
-
-        <div class="weeks-section" data-fill="2750" data-weeks="2750">
-          <div class="weeks-section-num">08</div>
-          <div class="weeks-section-tag">THE SOLUTION</div>
-          <h3 class="weeks-section-title">WE HUNT<br><span class="wo">FOR YOU.</span></h3>
-          <p class="weeks-section-body">
-            HUNTERS exists for exactly this.<br>
-            We cut through the noise so you don't waste your <strong>500 free weeks</strong> on mediocre places and
-            forgettable nights.<br><br>
-            <strong>Curated cafes. Real events. Zero BS.</strong><br>
-            One source you can actually trust.
-          </p>
-          <div class="weeks-section-italic">"We hunt the best. You show up."</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- FINAL -->
-    <section id="weeks-final">
-      <div class="weeks-final-sub">HUNTERS · VADODARA</div>
-      <h2 class="weeks-final-h">STOP SCROLLING.<br>START <span style="color:#E76F51">HUNTING.</span></h2>
-      <p class="weeks-final-body">
-        You have <strong>~500 free weeks</strong> in your entire adult life.<br>
-        You're spending them in Vadodara.<br>
-        Make them worth something.
-      </p>
-      <a class="weeks-cta-btn" href="cafes.html">START HUNTING</a>
-      <div class="weeks-final-brand">HUNTERS · WE HUNT THE BEST EXPERIENCES IN VADODARA</div>
-    </section>
-
-    <script>
-      (function () {
-        const COLS = 52, ROWS = 80, TOTAL = COLS * ROWS;
-        const dotTypes = new Array(TOTAL).fill('free');
-        function fillRange(start, end, type) {
-          for (let i = start; i < Math.min(end, TOTAL); i++) dotTypes[i] = type;
-        }
-        fillRange(0, 1387, 'sleep');
-        fillRange(1387, 2300, 'work');
-        fillRange(2300, 2560, 'chore');
-
-        const canvas = document.getElementById('weeks-dot-canvas');
-        const ctx = canvas.getContext('2d');
-        let DOT_R = 3, GAP = 2;
-
-        function setupCanvas() {
-          const container = document.getElementById('weeks-grid-sticky');
-          const availW = Math.min(container.clientWidth - 40, 520);
-          const totalCellW = availW / COLS;
-          DOT_R = Math.max(2, Math.floor(totalCellW * 0.46));
-          GAP = Math.max(1, Math.floor(totalCellW * 0.18));
-          const w = COLS * (DOT_R * 2 + GAP) - GAP;
-          const h = ROWS * (DOT_R * 2 + GAP) - GAP;
-          canvas.width = w; canvas.height = h;
-          canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
-        }
-
-        function dotCenter(i) {
-          return {
-            x: (i % COLS) * (DOT_R * 2 + GAP) + DOT_R,
-            y: Math.floor(i / COLS) * (DOT_R * 2 + GAP) + DOT_R
-          };
-        }
-
-        function dotColor(i, filled) {
-          if (i < filled) return 'rgba(255,255,255,0.04)';
-          const t = dotTypes[i];
-          if (t === 'sleep') return '#161616';
-          if (t === 'work') return '#202020';
-          if (t === 'chore') return '#1a1510';
-          return '#E76F51';
-        }
-
-        let animFilled = 0, targetFilled = 0, animFrame = null;
-
-        function draw(filled) {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          for (let i = 0; i < TOTAL; i++) {
-            const { x, y } = dotCenter(i);
-            ctx.beginPath();
-            ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
-            if (i < filled) {
-              ctx.fillStyle = 'rgba(255,255,255,0.035)';
-            } else {
-              ctx.fillStyle = dotColor(i, filled);
-              if (dotTypes[i] === 'free') {
-                ctx.shadowColor = 'rgba(231,111,81,0.4)';
-                ctx.shadowBlur = 3;
-              } else { ctx.shadowBlur = 0; }
-            }
-            ctx.fill();
-            ctx.shadowBlur = 0;
-          }
-          if (filled > 0 && filled < TOTAL) {
-            const { x, y } = dotCenter(filled);
-            ctx.beginPath();
-            ctx.arc(x, y, DOT_R + 1, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(231,111,81,0.6)';
-            ctx.shadowColor = 'rgba(231,111,81,0.8)';
-            ctx.shadowBlur = 8;
-            ctx.fill();
-            ctx.shadowBlur = 0;
-          }
-        }
-
-        function animateTo(target) {
-          targetFilled = target;
-          if (animFrame) cancelAnimationFrame(animFrame);
-          const speed = Math.max(1, Math.abs(target - animFilled) / 40);
-          function step() {
-            if (Math.abs(animFilled - targetFilled) < 2) {
-              animFilled = targetFilled; draw(animFilled); return;
-            }
-            animFilled += (targetFilled - animFilled) * 0.06;
-            if (targetFilled > animFilled) animFilled = Math.min(targetFilled, animFilled + speed);
-            else animFilled = Math.max(targetFilled, animFilled - speed);
-            draw(Math.round(animFilled));
-            animFrame = requestAnimationFrame(step);
-          }
-          step();
-        }
-
-        const weeksSections = document.querySelectorAll('.weeks-section');
-        const weeksProgressBar = document.getElementById('weeks-progress');
-        const weeksSection = document.getElementById('weeks-section');
-
-        function onWeeksScroll() {
-          const sectionTop = weeksSection.getBoundingClientRect().top + window.scrollY;
-          const sectionH = weeksSection.offsetHeight;
-          const scrollTop = window.scrollY;
-          const pct = Math.max(0, Math.min(1, (scrollTop - sectionTop) / sectionH));
-          weeksProgressBar.style.width = (pct * 100) + '%';
-
-          weeksSections.forEach(sec => {
-            const rect = sec.getBoundingClientRect();
-            const mid = window.innerHeight * 0.5;
-            const inView = rect.top < mid && rect.bottom > mid;
-
-            sec.querySelectorAll('.weeks-section-tag, .weeks-section-title, .weeks-section-body, .weeks-section-italic, .weeks-week-badge').forEach(el => {
-              if (rect.top < window.innerHeight * 0.8) el.classList.add('wvisible');
-            });
-
-            if (inView) animateTo(parseInt(sec.dataset.fill) || 0);
-          });
-
-          const finalRect = document.getElementById('weeks-final').getBoundingClientRect();
-          if (finalRect.top < window.innerHeight * 0.6) animateTo(TOTAL);
-        }
-
-        setupCanvas();
-        draw(0);
-        window.addEventListener('scroll', onWeeksScroll, { passive: true });
-        window.addEventListener('resize', () => { setupCanvas(); draw(Math.round(animFilled)); });
-        onWeeksScroll();
-      })();
-    </script>
-  </div>
+  <!-- 4,000 WEEKS section removed per request -->
 
   <!-- FOOTER -->
   <footer>
@@ -1942,16 +1249,15 @@
         <div class="ft-col">
           <div class="ft-col-head">Discover</div>
           <ul>
+            <li><a href="index.html">Home</a></li>
             <li><a href="cafes.html">All Cafes</a></li>
             <li><a href="events.html">Upcoming Events</a></li>
-            <li><a href="index.html#featured">This Week's Picks</a></li>
-            <li><a href="index.html#how">How It Works</a></li>
+            <li><a href="suggest.html">Suggest</a></li>
           </ul>
         </div>
         <div class="ft-col">
           <div class="ft-col-head">HUNTERS</div>
           <ul>
-            <li><a href="about.html">About Us</a></li>
             <li><a href="suggest.html">Submit a Spot</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
