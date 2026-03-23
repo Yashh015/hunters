@@ -8,12 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
     rel="stylesheet">
   <style>
     :root {
-      --red: #e63f1e;
-      --red-bright: #ff5230;
+      --primary: #ffffff;
+      --red: #ffffff;
+      --red-bright: #ffffff;
       --bg: #080808;
       --bg1: #0d0d0d;
       --bg2: #111111;
@@ -50,7 +51,7 @@
     body {
       background: #050505;
       color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       overflow-x: hidden
     }
 
@@ -64,7 +65,7 @@
     }
 
     ::selection {
-      background: var(--red);
+      background: var(--primary);
       color: #fff
     }
 
@@ -152,7 +153,7 @@
       width: 28px;
       height: 28px;
       border-radius: 7px;
-      background: var(--red);
+      background: var(--primary);
       overflow: hidden;
       flex-shrink: 0
     }
@@ -165,7 +166,7 @@
     }
 
     .n-name {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: 14px;
       letter-spacing: .1em;
@@ -241,20 +242,20 @@
     .n-cta {
       font-size: 12.5px;
       font-weight: 700;
-      color: #fff;
+      color: #000;
       padding: 8px 18px;
       border-radius: 100px;
-      background: var(--red);
+      background: var(--primary);
       border: 1px solid rgba(255, 255, 255, .08);
-      box-shadow: 0 2px 12px rgba(230, 63, 30, .35);
+      box-shadow: 0 2px 12px rgba(255, 255, 255, .15);
       transition: background .2s, transform .15s var(--spring), box-shadow .3s;
       white-space: nowrap
     }
 
     .n-cta:hover {
-      background: var(--red-bright);
+      background: var(--primary);
       transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(230, 63, 30, .5)
+      box-shadow: 0 6px 24px rgba(255, 255, 255, .2)
     }
 
     .n-menu-btn {
@@ -298,7 +299,7 @@
     }
 
     .n-mobile-menu a {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 32px;
       color: rgba(242, 237, 230, .3);
@@ -316,8 +317,8 @@
 
     .n-mobile-menu .nm-cta {
       margin-top: 24px;
-      background: var(--red);
-      color: #fff !important;
+      background: var(--primary);
+      color: #000 !important;
       border-radius: 100px;
       padding: 16px 40px !important;
       font-size: 16px !important;
@@ -337,7 +338,7 @@
       font-weight: 700;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--primary);
       margin-bottom: 16px;
       display: flex;
       align-items: center;
@@ -348,7 +349,7 @@
       content: '';
       width: 18px;
       height: 1px;
-      background: var(--red)
+      background: var(--primary)
     }
 
     @keyframes fadeUp {
@@ -387,7 +388,7 @@
       transform: translateX(-50%);
       width: 700px;
       height: 400px;
-      background: radial-gradient(ellipse at 50% 0%, rgba(230, 63, 30, .09) 0%, transparent 65%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, .05) 0%, transparent 65%);
       pointer-events: none
     }
 
@@ -395,21 +396,21 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(230, 63, 30, .07);
-      border: 1px solid rgba(230, 63, 30, .18);
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .1);
       border-radius: 100px;
       padding: 5px 14px;
       font-size: 10.5px;
       font-weight: 700;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--primary);
       margin-bottom: 24px;
       animation: fadeUp .7s var(--ease-out) .1s both
     }
 
     .pg-h {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: clamp(44px, 6vw, 80px);
       line-height: .95;
@@ -419,10 +420,10 @@
     }
 
     .pg-h em {
-      font-family: 'Instrument Serif', serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-style: italic;
       font-weight: 400;
-      color: var(--red)
+      color: var(--primary)
     }
 
     .pg-sub {
@@ -454,7 +455,7 @@
       background: transparent;
       cursor: pointer;
       transition: all .2s;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       white-space: nowrap
     }
 
@@ -464,8 +465,8 @@
     }
 
     .filter-btn.active {
-      background: var(--red);
-      border-color: var(--red);
+      background: var(--primary);
+      border-color: var(--primary);
       color: #fff
     }
 
@@ -521,7 +522,7 @@
     }
 
     .cafe-card:hover {
-      border-color: rgba(230, 63, 30, .2);
+      border-color: rgba(255, 255, 255, .1);
       transform: translateY(-5px);
       box-shadow: 0 24px 60px rgba(0, 0, 0, .6)
     }
@@ -557,8 +558,8 @@
     }
 
     .cc-chip.gem {
-      background: rgba(230, 63, 30, .16);
-      color: var(--red)
+      background: rgba(255, 255, 255, .08);
+      color: var(--primary)
     }
 
     .cc-score-badge {
@@ -570,10 +571,10 @@
       border: 1px solid var(--ink06);
       border-radius: 7px;
       padding: 5px 10px;
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: 16px;
-      color: var(--red)
+      color: var(--primary)
     }
 
     .cc-body {
@@ -581,7 +582,7 @@
     }
 
     .cc-name {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 19px;
       color: var(--ink);
@@ -634,7 +635,7 @@
     }
 
     .cc-price strong {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
       font-size: 14px;
       color: var(--ink60);
@@ -660,7 +661,7 @@
       bottom: -30px;
       left: 50%;
       transform: translateX(-50%);
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: clamp(80px, 14vw, 180px);
       letter-spacing: -.04em;
@@ -693,7 +694,7 @@
       width: 36px;
       height: 36px;
       border-radius: 9px;
-      background: var(--red);
+      background: var(--primary);
       overflow: hidden;
       flex-shrink: 0
     }
@@ -706,7 +707,7 @@
     }
 
     .ft-name {
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
       font-size: 18px;
       letter-spacing: .1em;
@@ -784,7 +785,7 @@
       padding: 10px 16px;
       font-size: 13px;
       color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       outline: none;
       transition: border-color .2s
     }
@@ -798,21 +799,21 @@
     }
 
     .ft-nl-btn {
-      background: var(--red);
+      background: var(--primary);
       color: #fff;
       border: none;
       border-radius: 100px;
       padding: 10px 18px;
       font-size: 13px;
       font-weight: 700;
-      font-family: 'Cabinet Grotesk', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       cursor: pointer;
       white-space: nowrap;
       transition: background .2s
     }
 
     .ft-nl-btn:hover {
-      background: var(--red-bright)
+      background: var(--primary)
     }
 
     .ft-nl-note {
@@ -865,7 +866,7 @@
     }
 
     .foot-made span {
-      color: var(--red)
+      color: var(--primary)
     }
 
     @media(max-width:900px) {
@@ -1008,22 +1009,24 @@
         <span class="n-name">HUNTERS</span>
       </a>
       <ul class="n-links">
+        <li><a href="index.html">Home</a></li>
         <li><a href="cafes.html" class="active">Cafes</a></li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="about.html">About</a></li>
         <li><a href="suggest.html">Suggest</a></li>
       </ul>
       <div class="n-right">
         <div class="n-divider"></div>
         <a href="suggest.html" class="n-ghost">Submit a Spot</a>
-        <a href="suggest.html" class="n-cta">Submit a Spot →</a>
+        <a href="cafes.html" class="n-cta">Start Hunting →</a>
         <button class="n-menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
   <div class="n-mobile-menu" id="mobileMenu">
-    <a href="cafes.html">Cafes</a><a href="events.html">Events</a><a href="about.html">About</a><a
-      href="suggest.html">Suggest</a>
+    <a href="index.html">Home</a>
+    <a href="cafes.html" class="active">Cafes</a>
+    <a href="events.html">Events</a>
+    <a href="suggest.html">Suggest</a>
     <a href="suggest.html" class="nm-cta">Submit a Spot</a>
   </div>
 
@@ -1258,16 +1261,15 @@
         <div class="ft-col">
           <div class="ft-col-head">Discover</div>
           <ul>
+            <li><a href="index.html">Home</a></li>
             <li><a href="cafes.html">All Cafes</a></li>
             <li><a href="events.html">Upcoming Events</a></li>
-            <li><a href="index.html#featured">This Week's Picks</a></li>
-            <li><a href="index.html#how">How It Works</a></li>
+            <li><a href="suggest.html">Suggest</a></li>
           </ul>
         </div>
         <div class="ft-col">
           <div class="ft-col-head">HUNTERS</div>
           <ul>
-            <li><a href="about.html">About Us</a></li>
             <li><a href="suggest.html">Submit a Spot</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
