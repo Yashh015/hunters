@@ -7,37 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-      --primary: #ffffff;
-  --red: #ffffff;
-  --red-bright: #ffffff;
-  --bg: #050505;
-  --bg1: #0d0d0d;
-  --bg2: #111111;
-  --bg3: #161616;
-  --ink: #f2ede6;
-  --ink60: rgba(242,237,230,.6);
-  --ink30: rgba(242,237,230,.3);
-  --ink10: rgba(242,237,230,.1);
-  --ink06: rgba(242,237,230,.06);
-  --green-bg: #0a1f14;
-  --green-mid: #0d2a1a;
-  --green-acc: #3d8c7c;
-  --green-light: #4aab96;
-  --ease-out: cubic-bezier(.22,1,.36,1);
-  --spring: cubic-bezier(.34,1.4,.64,1);
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { -webkit-font-smoothing: antialiased; }
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  /* show some page content above so footer context is clear */
-}
-a { text-decoration: none; color: inherit; }
+  <link rel="stylesheet" href="styles.css">
+  <style>
+/* Page-specific styles */
 
 /* ── FAKE PAGE CONTENT ABOVE FOOTER ── */
 .page-above {
@@ -551,7 +523,7 @@ footer::after {
         <div>
           <div class="foot-brand-row">
             <div class="foot-logo">
-              <img src="/logo.png" alt="HUNTERS">
+              <img src="logo.png" alt="HUNTERS">
             </div>
             <span class="foot-wordmark">HUNTERS</span>
           </div>
@@ -711,16 +683,26 @@ footer::after {
 </div><!-- /footer-scene -->
 
 <script>
+const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('img').forEach((img, i) => {
+  if (!img.hasAttribute('decoding')) img.decoding = 'async';
+  if (!img.hasAttribute('loading') && i > 0) img.loading = 'lazy';
+});
+
 // Animate croc on scroll into view
 const croc = document.querySelector('.croc-mascot');
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      croc.style.animation = 'crocFloat 4s ease-in-out infinite';
-    }
-  });
-}, { threshold: 0.3 });
-if (croc) obs.observe(croc);
+if (croc && 'IntersectionObserver' in window) {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        croc.style.animation = 'crocFloat 4s ease-in-out infinite';
+      }
+    });
+  }, { threshold: 0.3 });
+  obs.observe(croc);
+} else if (croc) {
+  croc.style.animation = 'crocFloat 4s ease-in-out infinite';
+}
 
 // Bubble hover interaction
 const bubble = document.querySelector('.croc-bubble');
@@ -732,7 +714,7 @@ const msgs = [
   'Vadodara\'s best, curated. 🎯'
 ];
 let i = 0;
-if (bubble) {
+if (bubble && !prefersReducedMotion) {
   setInterval(() => {
     i = (i + 1) % msgs.length;
     bubble.style.opacity = '0';
@@ -748,3 +730,12 @@ if (bubble) {
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

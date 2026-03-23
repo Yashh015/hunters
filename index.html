@@ -11,75 +11,12 @@
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
     rel="stylesheet">
 
+    <link rel="stylesheet" href="styles.css">
   <style>
-    /* ─────────────────────────────────────────
-   DESIGN TOKENS
-───────────────────────────────────────── */
-    :root {
-      --primary: #ffffff;
-      --primary-dim: rgba(255, 255, 255, .08);
-      --primary-glow: rgba(255, 255, 255, .18);
-
-      --bg: #000000;
-      --bg1: #060606;
-      --bg2: #0a0a0a;
-      --bg3: #111111;
-      --bg4: #151515;
-
-      --ink: #f2ede6;
-      --ink60: rgba(242, 237, 230, .6);
-      --ink30: rgba(242, 237, 230, .3);
-      --ink10: rgba(242, 237, 230, .1);
-      --ink06: rgba(242, 237, 230, .06);
-      --ink03: rgba(242, 237, 230, .03);
-
-      --green-bg: #0a1f14;
-      --green-mid: #0d2a1a;
-      --green-acc: #3d8c7c;
-      --green-light: #4aab96;
-
-      --r-sm: 12px;
-      --r-md: 18px;
-      --r-lg: 24px;
-      --r-xl: 32px;
-
-      --ease-out: cubic-bezier(.22, 1, .36, 1);
-      --ease-in-out: cubic-bezier(.76, 0, .24, 1);
-      --spring: cubic-bezier(.34, 1.4, .64, 1);
-    }
-
-    /* ─────────────────────────────────────────
-   RESET + BASE
-───────────────────────────────────────── */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-    }
-
     body {
       background: #000000;
-      color: var(--ink);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
       font-weight: 400;
-      overflow-x: hidden;
-    }
-
-    img {
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
     }
 
     ::selection {
@@ -87,219 +24,9 @@
       color: var(--bg);
     }
 
-
-    /* Hero gets no side margin — full bleed */
-
-
-
-
-    /* ─────────────────────────────────────────
-   GRAIN OVERLAY
-───────────────────────────────────────── */
-    #grain {
-      position: fixed;
-      inset: 0;
-      z-index: 8998;
-      pointer-events: none;
-      opacity: .28;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='.06'/%3E%3C/svg%3E");
-      animation: grainShift 8s steps(1) infinite;
-    }
-
-    @keyframes grainShift {
-      0% {
-        background-position: 0 0;
-      }
-
-      20% {
-        background-position: -50px 30px;
-      }
-
-      40% {
-        background-position: 80px -20px;
-      }
-
-      60% {
-        background-position: -30px 60px;
-      }
-
-      80% {
-        background-position: 50px -50px;
-      }
-    }
-
-    /* ─────────────────────────────────────────
-   NAV — Floating pill, Wispr Flow style
-───────────────────────────────────────── */
-
-    /* Outer wrapper — sits at top, provides the padding so pill floats */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 700;
-      padding: 14px 20px;
-      pointer-events: none;
-      /* let clicks pass through padding area */
-      animation: fromTop .7s var(--ease-out) both;
-    }
-
-    @keyframes fromTop {
-      from {
-        opacity: 0;
-        transform: translateY(-16px);
-      }
-
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    /* The pill itself */
-    .nav-pill {
-      pointer-events: all;
-      max-width: 860px;
-      margin: 0 auto;
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 8px 0 16px;
-      background: rgba(12, 11, 10, .88);
-      backdrop-filter: blur(28px) saturate(180%);
-      -webkit-backdrop-filter: blur(28px) saturate(180%);
-      border: 1px solid rgba(242, 237, 230, .09);
-      border-radius: 100px;
-      box-shadow:
-        0 2px 0 rgba(255, 255, 255, .04) inset,
-        0 8px 32px rgba(0, 0, 0, .55),
-        0 1px 0 rgba(0, 0, 0, .6);
-      transition: border-color .3s, box-shadow .3s;
-    }
-
     .nav-pill:hover {
       border-color: rgba(242, 237, 230, .13);
       box-shadow: 0 2px 0 rgba(255, 255, 255, .04) inset, 0 12px 40px rgba(0, 0, 0, .65), 0 1px 0 rgba(0, 0, 0, .6);
-    }
-
-    /* Divider between links and CTAs */
-    .n-divider {
-      width: 1px;
-      height: 20px;
-      background: rgba(242, 237, 230, .1);
-      margin: 0 6px;
-      flex-shrink: 0;
-    }
-
-    .n-brand {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      flex-shrink: 0;
-    }
-
-    .n-logo {
-      width: 28px;
-      height: 28px;
-      border-radius: 7px;
-      background: var(--primary);
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .n-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 50% 18%;
-    }
-
-    .n-name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 900;
-      font-size: 14px;
-      letter-spacing: .1em;
-      color: var(--ink);
-    }
-
-    .n-links {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      list-style: none;
-      margin: 0 auto;
-      padding: 0 8px;
-    }
-
-    .n-links a {
-      font-size: 13px;
-      font-weight: 500;
-      color: rgba(242, 237, 230, .45);
-      padding: 6px 12px;
-      border-radius: 100px;
-      transition: color .2s, background .2s;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      white-space: nowrap;
-    }
-
-    .n-links a:hover {
-      color: var(--ink);
-      background: rgba(242, 237, 230, .06);
-    }
-
-    .n-arr {
-      font-size: 8px;
-      opacity: .45;
-      margin-top: 1px;
-    }
-
-    .n-right {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-shrink: 0;
-    }
-
-    /* Ghost pill — "Submit a Spot" */
-    .n-ghost {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: rgba(242, 237, 230, .55);
-      padding: 7px 15px;
-      border-radius: 100px;
-      border: 1px solid rgba(242, 237, 230, .12);
-      transition: border-color .2s, color .2s, background .2s;
-      white-space: nowrap;
-    }
-
-    .n-ghost:hover {
-      border-color: rgba(242, 237, 230, .22);
-      color: var(--ink);
-      background: rgba(242, 237, 230, .04);
-    }
-
-    /* Filled pill — "Start Hunting →" */
-    .n-cta {
-      font-size: 12.5px;
-      font-weight: 700;
-      color: #000;
-      padding: 8px 18px;
-      border-radius: 100px;
-      background: var(--primary);
-      border: 1px solid rgba(255, 255, 255, .08);
-      box-shadow: 0 2px 12px rgba(255, 255, 255, .15), 0 1px 0 rgba(255, 255, 255, .1) inset;
-      transition: background .2s, transform .15s var(--spring), box-shadow .3s;
-      white-space: nowrap;
-    }
-
-    .n-cta:hover {
-      background: var(--primary);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(255, 255, 255, .2), 0 1px 0 rgba(255, 255, 255, .12) inset;
     }
 
     /* ─────────────────────────────────────────
@@ -1162,6 +889,7 @@
       right: 12px;
       background: rgba(10, 9, 8, .88);
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid var(--ink06);
       border-radius: 7px;
       padding: 4px 9px;
@@ -1983,90 +1711,6 @@
 
 
 
-    /* Mobile hamburger */
-    .n-menu-btn {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      width: 36px;
-      height: 36px;
-      background: var(--ink06);
-      border: 1px solid var(--ink10);
-      border-radius: 9px;
-      cursor: pointer;
-      padding: 8px;
-    }
-
-    .n-menu-btn span {
-      display: block;
-      height: 1.5px;
-      background: var(--ink60);
-      border-radius: 2px;
-      transition: transform .25s var(--ease-out), opacity .2s;
-    }
-
-    @media(max-width:560px) {
-      .n-menu-btn {
-        display: flex;
-      }
-
-      .n-cta {
-        display: none;
-      }
-    }
-
-    /* Mobile menu overlay */
-    .n-mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 699;
-      background: rgba(5, 5, 5, .97);
-      backdrop-filter: blur(20px);
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      padding: 80px 24px 40px;
-    }
-
-    .n-mobile-menu.open {
-      display: flex;
-    }
-
-    .n-mobile-menu a {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 800;
-      font-size: 32px;
-      color: var(--ink30);
-      letter-spacing: -.02em;
-      padding: 12px 0;
-      width: 100%;
-      text-align: center;
-      border-bottom: 1px solid var(--ink06);
-      transition: color .2s;
-    }
-
-    .n-mobile-menu a:last-of-type {
-      border-bottom: none;
-    }
-
-    .n-mobile-menu a:hover {
-      color: var(--ink);
-    }
-
-    .n-mobile-menu .nm-cta {
-      margin-top: 24px;
-      background: var(--primary);
-      color: #000 !important;
-      border-radius: 100px;
-      padding: 16px 40px !important;
-      font-size: 16px !important;
-      border-bottom: none !important;
-      width: auto !important;
-    }
-
     /* All .rev elements start hidden, get .in via JS */
 
     /* ─────────────────────────────────────────
@@ -2538,7 +2182,6 @@
     }
     }
   </style>
-
 </head>
 
 <body class="homepage">
@@ -2549,7 +2192,7 @@
     <div class="nav-pill">
       <a href="index.html" class="n-brand">
         <div class="n-logo">
-          <img src="/logo.png" alt="HUNTERS">
+          <img src="logo.png" alt="HUNTERS">
         </div>
         <span class="n-name">HUNTERS</span>
       </a>
@@ -3293,7 +2936,7 @@
     }
   </style>
 
-  <section class="map-sec" id="sec2">
+  <section class="map-sec" id="featured">
     <div class="map-sec-inner">
 
       <!-- Label -->
@@ -4127,6 +3770,9 @@
 
       let mapActiveId = null;
       const mapFrame = document.getElementById('mapFrame');
+      const cardsList = document.getElementById('mapCardsList');
+      const dotsRow = document.getElementById('mapDotsRow');
+      if (!mapFrame || !cardsList || !dotsRow) return;
 
       function swapMap(src) {
         mapFrame.style.transition = 'opacity 0.3s ease, transform 0.35s cubic-bezier(0.4,0,0.2,1)';
@@ -4153,7 +3799,6 @@
       }
 
       function renderMapCards() {
-        const cardsList = document.getElementById('mapCardsList');
         cardsList.innerHTML = mapPlaces.map((p, i) => `
         <div class="map-card ${mapActiveId === p.id ? 'map-active' : ''}"
              data-id="${p.id}"
@@ -4174,7 +3819,6 @@
         </div>
       `).join('');
 
-        const dotsRow = document.getElementById('mapDotsRow');
         dotsRow.innerHTML = mapPlaces.map(p => `
         <div class="map-dot-ind ${mapActiveId === p.id ? 'map-on' : ''}" data-id="${p.id}"></div>
       `).join('');
@@ -4195,13 +3839,17 @@
       }
 
       // Scroll entrance reveal
-      const mapSection = document.getElementById('sec2');
-      const mapObserver = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { mapSection.classList.add('map-in'); mapObserver.unobserve(mapSection); }
-        });
-      }, { threshold: 0.12 });
-      mapObserver.observe(mapSection);
+      const mapSection = document.getElementById('featured');
+      if (mapSection && 'IntersectionObserver' in window) {
+        const mapObserver = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) { mapSection.classList.add('map-in'); mapObserver.unobserve(mapSection); }
+          });
+        }, { threshold: 0.12 });
+        mapObserver.observe(mapSection);
+      } else if (mapSection) {
+        mapSection.classList.add('map-in');
+      }
 
       renderMapCards();
     })();
@@ -4420,7 +4068,7 @@
     <div class="croc-banner-wrap croc-banner-flush">
       <div class="croc-banner">
         <div class="cb-croc">
-          <img src="/logo.png" alt="HUNTERS Mascot">
+          <img src="logo.png" alt="HUNTERS Mascot">
         </div>
         <div class="cb-content">
           <p class="cb-label">What we do, every single day</p>
@@ -4435,9 +4083,9 @@
 
 
   <!-- ══════════════════════ CTA ══════════════════════ -->
-  <div class="cta-wrap">
+  <div class="cta-wrap" id="how">
     <div class="cta-logo rev">
-      <img src="/logo.png" alt="HUNTERS">
+      <img src="logo.png" alt="HUNTERS">
     </div>
     <h2 class="cta-h rev">
       Life is more than just<br>work and bed rotting.
@@ -4445,7 +4093,7 @@
     <p class="cta-sub rev">Your next great Saturday is already out there. Stop letting it pass you by.</p>
     <div class="cta-btns rev">
       <a href="#featured" class="btn-primary">Side quests →</a>
-      <a href="#submit" class="btn-outline">Submit a Spot</a>
+      <a href="suggest.html" class="btn-outline">Submit a Spot</a>
     </div>
   </div>
 
@@ -4589,7 +4237,7 @@
           <!-- Brand -->
           <div>
             <div class="foot-brand-row">
-              <div class="foot-logo"><img src="/logo.png" alt="HUNTERS"></div>
+              <div class="foot-logo"><img src="logo.png" alt="HUNTERS"></div>
               <span class="foot-wordmark">HUNTERS</span>
             </div>
             <p class="foot-tagline">"We hunt the best cafes and events in Vadodara. No algorithm. No sponsorships. Just
@@ -4627,8 +4275,8 @@
             <div class="foot-col-head">Friday Newsletter</div>
             <p class="foot-nl-label">3 things worth your time,<br>every Friday morning. No noise.</p>
             <div class="foot-nl-form">
-              <input type="email" class="ft-nl-input" placeholder="your@email.com">
-              <button class="ft-nl-btn">Join</button>
+              <input type="email" class="foot-nl-input" placeholder="your@email.com">
+              <button class="foot-nl-btn">Join</button>
             </div>
             <p class="foot-nl-note">No spam. Unsubscribe anytime.</p>
           </div>
@@ -4662,6 +4310,12 @@
 
 
   <script>
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('img').forEach((img, i) => {
+      if (!img.hasAttribute('decoding')) img.decoding = 'async';
+      if (!img.hasAttribute('loading') && i > 2) img.loading = 'lazy';
+    });
+
     /* ─────── MOBILE MENU ─────── */
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -4750,27 +4404,40 @@
 
 
     /* ─────── SCROLL REVEAL — IntersectionObserver ─────── */
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.rev, .pain, .step, .oc, .tc, .big-q, .card').forEach(el => io.observe(el));
+      document.querySelectorAll('.rev, .pain, .step, .oc, .tc, .big-q, .card').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.rev, .pain, .step, .oc, .tc, .big-q, .card').forEach(el => el.classList.add('in'));
+    }
 
 
     /* ─────── NAV SCROLL SHADOW ─────── */
+    let navTick = false;
     window.addEventListener('scroll', () => {
-      const pill = document.querySelector('.nav-pill');
-      if (!pill) return;
-      pill.style.borderColor = scrollY > 30
-        ? 'rgba(242,237,230,.14)'
-        : 'rgba(242,237,230,.09)';
-      pill.style.boxShadow = scrollY > 30
-        ? '0 2px 0 rgba(255,255,255,.04) inset, 0 16px 48px rgba(0,0,0,.7), 0 1px 0 rgba(0,0,0,.6)'
-        : '0 2px 0 rgba(255,255,255,.04) inset, 0 8px 32px rgba(0,0,0,.55), 0 1px 0 rgba(0,0,0,.6)';
+      if (navTick) return;
+      navTick = true;
+      requestAnimationFrame(() => {
+        const pill = document.querySelector('.nav-pill');
+        if (!pill) {
+          navTick = false;
+          return;
+        }
+        pill.style.borderColor = scrollY > 30
+          ? 'rgba(242,237,230,.14)'
+          : 'rgba(242,237,230,.09)';
+        pill.style.boxShadow = scrollY > 30
+          ? '0 2px 0 rgba(255,255,255,.04) inset, 0 16px 48px rgba(0,0,0,.7), 0 1px 0 rgba(0,0,0,.6)'
+          : '0 2px 0 rgba(255,255,255,.04) inset, 0 8px 32px rgba(0,0,0,.55), 0 1px 0 rgba(0,0,0,.6)';
+        navTick = false;
+      });
     }, { passive: true });
 
 
@@ -4785,15 +4452,21 @@
 
     // Animate croc on scroll into view
     const crocMascot = document.querySelector('.croc-mascot');
-    const crocObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          crocMascot.style.animation = 'crocFloat 4s ease-in-out infinite';
-          document.querySelector('.croc-bubble').style.animation = 'bubblePop .6s var(--spring) 1.2s both';
-        }
-      });
-    }, { threshold: 0.3 });
-    if (crocMascot) crocObs.observe(crocMascot);
+    const crocBubble = document.querySelector('.croc-bubble');
+    if (crocMascot && 'IntersectionObserver' in window) {
+      const crocObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            crocMascot.style.animation = 'crocFloat 4s ease-in-out infinite';
+            if (crocBubble) crocBubble.style.animation = 'bubblePop .6s var(--spring) 1.2s both';
+          }
+        });
+      }, { threshold: 0.3 });
+      crocObs.observe(crocMascot);
+    } else if (crocMascot) {
+      crocMascot.style.animation = 'crocFloat 4s ease-in-out infinite';
+      if (crocBubble) crocBubble.style.animation = 'bubblePop .6s var(--spring) 1.2s both';
+    }
 
     // Bubble hover interaction
     const bubble = document.querySelector('.croc-bubble');
@@ -4805,7 +4478,7 @@
       'Vadodara\'s best, curated. 🎯'
     ];
     let msgIndex = 0;
-    if (bubble) {
+    if (bubble && !prefersReducedMotion) {
       setInterval(() => {
         msgIndex = (msgIndex + 1) % msgs.length;
         bubble.style.opacity = '0';
@@ -4823,3 +4496,14 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
