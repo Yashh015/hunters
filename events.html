@@ -5,12 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Events — HUNTERS</title>
+  <link rel="canonical" href="https://hunters.in/events.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
   <style>
     /* Page-specific styles */
 
@@ -944,29 +945,8 @@
     </div>
   </footer>
 
+  <script src="script.js" defer></script>
   <script>
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && x.target.classList.add('in')), { threshold: .1, rootMargin: '0px 0px -40px 0px' });
-      document.querySelectorAll('.rev').forEach(el => io.observe(el));
-    } else {
-      document.querySelectorAll('.rev').forEach(el => el.classList.add('in'));
-    }
-    document.querySelectorAll('img').forEach((img, i) => {
-      if (!img.hasAttribute('decoding')) img.decoding = 'async';
-      if (!img.hasAttribute('loading') && i > 1) img.loading = 'lazy';
-    });
-    let navTick = false;
-    window.addEventListener('scroll', () => {
-      if (navTick) return;
-      navTick = true;
-      requestAnimationFrame(() => {
-        const p = document.querySelector('.nav-pill');
-        if (p) p.style.borderColor = scrollY > 30 ? 'rgba(242,237,230,.14)' : 'rgba(242,237,230,.09)';
-        navTick = false;
-      });
-    }, { passive: true });
-    const mb = document.getElementById('menuBtn'), mm = document.getElementById('mobileMenu');
-    if (mb && mm) { mb.addEventListener('click', () => { mm.classList.toggle('open'); const s = mb.querySelectorAll('span'); if (mm.classList.contains('open')) { s[0].style.transform = 'translateY(6.5px) rotate(45deg)'; s[1].style.opacity = '0'; s[2].style.transform = 'translateY(-6.5px) rotate(-45deg)' } else { s.forEach(x => { x.style.transform = ''; x.style.opacity = '' }) } }); mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mm.classList.remove('open'); mb.querySelectorAll('span').forEach(x => { x.style.transform = ''; x.style.opacity = '' }) })) }
     function filterEvents(tag, btn) { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.ev-card').forEach(c => { const t = c.dataset.tags || ''; c.style.display = (tag === 'all' || t.includes(tag)) ? '' : 'none' }) }
   </script>
 </body>

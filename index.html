@@ -5,13 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HUNTERS — Find What's Worth It in Vadodara</title>
+  <link rel="canonical" href="https://hunters.in/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
     rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
   <style>
     body {
       background: #000000;
@@ -4307,38 +4308,10 @@
     </footer>
   </div>
 
-
-
+  <script src="script.js" defer></script>
   <script>
     const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    document.querySelectorAll('img').forEach((img, i) => {
-      if (!img.hasAttribute('decoding')) img.decoding = 'async';
-      if (!img.hasAttribute('loading') && i > 2) img.loading = 'lazy';
-    });
 
-    /* ─────── MOBILE MENU ─────── */
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-        const spans = menuBtn.querySelectorAll('span');
-        if (mobileMenu.classList.contains('open')) {
-          spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
-          spans[1].style.opacity = '0';
-          spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
-        } else {
-          spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-        }
-      });
-      mobileMenu.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => {
-          mobileMenu.classList.remove('open');
-          const spans = menuBtn.querySelectorAll('span');
-          spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-        });
-      });
-    }
     const card = document.getElementById('crocCard');
     if (card) {
       let tiltActive = false;
@@ -4401,24 +4374,6 @@
         card.style.boxShadow = '';
       });
     });
-
-
-    /* ─────── SCROLL REVEAL — IntersectionObserver ─────── */
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in');
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-      document.querySelectorAll('.rev, .pain, .step, .oc, .tc, .big-q, .card').forEach(el => io.observe(el));
-    } else {
-      document.querySelectorAll('.rev, .pain, .step, .oc, .tc, .big-q, .card').forEach(el => el.classList.add('in'));
-    }
-
-
     /* ─────── NAV SCROLL SHADOW ─────── */
     let navTick = false;
     window.addEventListener('scroll', () => {
@@ -4430,9 +4385,6 @@
           navTick = false;
           return;
         }
-        pill.style.borderColor = scrollY > 30
-          ? 'rgba(242,237,230,.14)'
-          : 'rgba(242,237,230,.09)';
         pill.style.boxShadow = scrollY > 30
           ? '0 2px 0 rgba(255,255,255,.04) inset, 0 16px 48px rgba(0,0,0,.7), 0 1px 0 rgba(0,0,0,.6)'
           : '0 2px 0 rgba(255,255,255,.04) inset, 0 8px 32px rgba(0,0,0,.55), 0 1px 0 rgba(0,0,0,.6)';
