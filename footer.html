@@ -9,8 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --red: #e63f1e;
-  --red-bright: #ff5230;
+      --primary: #ffffff;
+  --red: #ffffff;
+  --red-bright: #ffffff;
   --bg: #050505;
   --bg1: #0d0d0d;
   --bg2: #111111;
@@ -33,7 +34,7 @@ html { -webkit-font-smoothing: antialiased; }
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   /* show some page content above so footer context is clear */
 }
 a { text-decoration: none; color: inherit; }
@@ -47,7 +48,7 @@ a { text-decoration: none; color: inherit; }
   text-align: center; padding: 60px 20px;
 }
 .page-above h2 {
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 900; font-size: clamp(32px,5vw,56px);
   letter-spacing: -.03em; color: var(--ink);
 }
@@ -105,7 +106,7 @@ a { text-decoration: none; color: inherit; }
   transform: translateX(-20%);
   background: var(--ink);
   color: #050505;
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
   font-size: 13px;
   padding: 10px 16px;
@@ -193,7 +194,7 @@ footer::after {
 .foot-logo {
   width: 38px; height: 38px;
   border-radius: 10px;
-  background: var(--red);
+  background: var(--primary);
   overflow: hidden; flex-shrink: 0;
   box-shadow: 0 4px 16px rgba(230,63,30,.35);
 }
@@ -202,7 +203,7 @@ footer::after {
   object-fit: cover; object-position: 50% 14%;
 }
 .foot-wordmark {
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 900; font-size: 17px;
   letter-spacing: .1em;
   color: var(--ink);
@@ -214,7 +215,7 @@ footer::after {
   max-width: 240px;
   margin-bottom: 24px;
   font-style: italic;
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* Social icons */
@@ -276,7 +277,7 @@ footer::after {
   border-radius: 100px;
   padding: 10px 16px;
   font-size: 13px; color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   outline: none;
   transition: border-color .2s, background .2s;
 }
@@ -286,18 +287,18 @@ footer::after {
   background: rgba(242,237,230,.07);
 }
 .foot-nl-btn {
-  background: var(--red);
+  background: var(--primary);
   color: #fff; border: none;
   border-radius: 100px;
   padding: 10px 18px;
   font-size: 12.5px; font-weight: 700;
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   cursor: pointer;
   box-shadow: 0 2px 12px rgba(230,63,30,.35);
   transition: background .2s, transform .15s var(--spring);
   white-space: nowrap;
 }
-.foot-nl-btn:hover { background: var(--red-bright); transform: translateY(-1px); }
+.foot-nl-btn:hover { background: var(--primary); transform: translateY(-1px); }
 .foot-nl-note { font-size: 11px; color: rgba(242,237,230,.2); margin-top: 8px; }
 
 /* ── GRASS STRIP ── */
@@ -331,7 +332,7 @@ footer::after {
 .foot-legal a { font-size: 12px; color: rgba(242,237,230,.2); transition: color .2s; }
 .foot-legal a:hover { color: rgba(242,237,230,.5); }
 .foot-love { font-size: 12px; color: rgba(242,237,230,.2); display: flex; align-items: center; gap: 4px; }
-.foot-love span { color: var(--red); }
+.foot-love span { color: var(--primary); }
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px) {
@@ -508,14 +509,14 @@ footer::after {
           <!-- Cup body -->
           <path d="M2,0 L18,0 L16,32 L4,32 Z" fill="#f5f0e8" opacity=".95"/>
           <!-- Cup sleeve -->
-          <path d="M1,8 L19,8 L18,18 L2,18 Z" fill="#e63f1e" opacity=".85"/>
+          <path d="M1,8 L19,8 L18,18 L2,18 Z" fill="#ffffff" opacity=".85"/>
           <!-- Ice -->
           <rect x="5" y="2" width="4" height="4" rx="1" fill="#b8e0f5" opacity=".8"/>
           <rect x="11" y="3" width="3" height="3" rx="1" fill="#b8e0f5" opacity=".6"/>
           <!-- Straw -->
-          <rect x="13" y="-14" width="2.5" height="18" rx="1.2" fill="#e63f1e"/>
+          <rect x="13" y="-14" width="2.5" height="18" rx="1.2" fill="#ffffff"/>
           <!-- Straw bend -->
-          <path d="M14.25,-14 Q18,-20 16,-25" stroke="#e63f1e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M14.25,-14 Q18,-20 16,-25" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
           <!-- Lid -->
           <path d="M1,0 Q10,-4 19,0" fill="#d4cfc8" stroke="#c0bab2" stroke-width=".5"/>
         </g>
@@ -566,11 +567,10 @@ footer::after {
         <div class="foot-col">
           <div class="foot-col-head">Discover</div>
           <ul>
+            <li><a href="index.html">Home</a></li>
             <li><a href="cafes.html">All Cafes</a></li>
             <li><a href="events.html">Upcoming Events</a></li>
-            <li><a href="index.html#featured">This Week's Picks</a></li>
-            <li><a href="cafes.html?filter=gem">Hidden Gems</a></li>
-            <li><a href="events.html?filter=free">Free Events</a></li>
+            <li><a href="suggest.html">Suggest</a></li>
           </ul>
         </div>
 
@@ -578,8 +578,6 @@ footer::after {
         <div class="foot-col">
           <div class="foot-col-head">HUNTERS</div>
           <ul>
-            <li><a href="about.html">Our Story</a></li>
-            <li><a href="about.html#standards">Our Standards</a></li>
             <li><a href="suggest.html">Submit a Spot</a></li>
             <li><a href="suggest.html">Become a Hunter</a></li>
             <li><a href="mailto:hello@hunters.in">Contact Us</a></li>
