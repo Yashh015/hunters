@@ -376,12 +376,38 @@
     .h-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 800;
-      font-size: 58px; /* increased by 10px per request */
+      font-size: 56px; /* updated per request */
       line-height: 0.96;
       letter-spacing: -.04em;
       color: #fff;
       margin-bottom: 20px;
       max-width: 1000px;
+    }
+
+    /* Homepage-scoped typography tweaks: reduce downstream sizes so sections appear visually lower */
+    body.homepage .sec-h {
+      font-size: clamp(28px, 3.2vw, 42px);
+    }
+
+    body.homepage .map-sec h2 {
+      font-size: clamp(30px, 5vw, 50px);
+    }
+
+    body.homepage .disc-title {
+      font-size: clamp(28px, 4.2vw, 54px);
+    }
+
+    body.homepage .croc-title {
+      font-size: clamp(18px, 2.4vw, 24px);
+    }
+
+    body.homepage .sec-p,
+    body.homepage p {
+      font-size: 14px;
+    }
+
+    body.homepage .c-name {
+      font-size: 18px;
     }
 
     .h-line {
@@ -1470,15 +1496,9 @@
       overflow: hidden;
     }
 
+    /* CTA glow intentionally removed */
     .cta-glow {
-      position: absolute;
-      bottom: -100px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 900px;
-      height: 600px;
-      background: radial-gradient(ellipse at bottom, rgba(230, 63, 30, .1) 0%, transparent 65%);
-      pointer-events: none;
+      display: none; /* hidden to remove background glow behind the CTA */
     }
 
     /* Thin horizontal lines for Framer-style depth */
@@ -1502,8 +1522,8 @@
     .cta-h {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 900;
-      font-size: clamp(54px, 8.5vw, 108px);
-      line-height: .9;
+      font-size: 52px; /* updated per request */
+      line-height: .94;
       letter-spacing: -.03em;
       margin-bottom: 26px;
     }
@@ -1678,15 +1698,16 @@
       z-index: 0;
     }
 
+    /* Removed glow from footer per request */
     footer::after {
       content: '';
       position: absolute;
       top: -80px;
       left: 50%;
       transform: translateX(-50%);
-      width: 600px;
-      height: 200px;
-      background: radial-gradient(ellipse, rgba(61, 140, 124, .15) 0%, transparent 70%);
+      width: 0;
+      height: 0;
+      background: none;
       pointer-events: none;
       z-index: 0;
     }
@@ -2197,7 +2218,7 @@
       }
 
       .cta-h {
-        font-size: clamp(44px, 7vw, 80px);
+        font-size: 42px;
       }
 
       /* Footer Responsive */
@@ -2433,7 +2454,7 @@
       }
 
       .cta-h {
-        font-size: clamp(40px, 11vw, 64px);
+        font-size: 38px;
         line-height: .92;
         margin-bottom: 20px;
       }
@@ -2517,10 +2538,10 @@
     }
     }
   </style>
+
 </head>
 
-<body>
-
+<body class="homepage">
   <div id="grain"></div>
 
   <!-- ══════════════════════ NAV ══════════════════════ -->
@@ -2534,10 +2555,10 @@
       </a>
 
       <ul class="n-links">
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="cafes.html">Cafes <span class="n-arr">▾</span></a></li>
         <li><a href="events.html">Events <span class="n-arr">▾</span></a></li>
-        <li><a href="index.html#how">How It Works</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="suggest.html">Suggest</a></li>
       </ul>
 
       <div class="n-right">
@@ -2553,9 +2574,9 @@
 
   <!-- Mobile Nav Overlay -->
   <div class="n-mobile-menu" id="mobileMenu">
+    <a href="index.html" class="active">Home</a>
     <a href="cafes.html">Cafes</a>
     <a href="events.html">Events</a>
-    <a href="about.html">About</a>
     <a href="suggest.html">Suggest</a>
     <a href="cafes.html" class="nm-cta">Start Hunting →</a>
   </div>
@@ -2572,8 +2593,7 @@
     </div>
 
     <h1 class="h-title">
-      <span class="h-line hl1"><span class="h-line-inner">Vadodara's weekends</span></span>
-      <span class="h-line hl2"><span class="h-line-inner">are better than you think.</span></span>
+      <span class="h-line"><span class="h-line-inner">Find and Host events in Vadodara.</span></span>
     </h1>
     
     <p class="h-subtitle" style="margin: 0 auto 0px; max-width: 520px; font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, 0.55); animation: fadeUp 0.7s var(--ease-out) 0.4s both;">
@@ -3286,9 +3306,8 @@
 
       <!-- Headline -->
       <div class="map-headline-wrap">
-        <h2 class="map-reveal-headline">We know <em>every corner</em><br>of Vadodara.</h2>
-        <p class="map-sub map-reveal-sub">5 places worth your time right now. No filler. No sponsored garbage. Just the
-          good stuff.</p>
+        <h2 class="map-reveal-headline">Find the best experience<br>of Vadodara.</h2>
+        <p class="map-sub map-reveal-sub">5 places worth your time right now. Just the good stuff.</p>
       </div>
 
       <!-- Browser mockup -->
@@ -4417,16 +4436,15 @@
 
   <!-- ══════════════════════ CTA ══════════════════════ -->
   <div class="cta-wrap">
-    <div class="cta-glow"></div>
     <div class="cta-logo rev">
       <img src="/logo.png" alt="HUNTERS">
     </div>
     <h2 class="cta-h rev">
-      Hunt something<br><span class="accent it">worth it.</span>
+      Life is more than just<br>work and bed rotting.
     </h2>
     <p class="cta-sub rev">Your next great Saturday is already out there. Stop letting it pass you by.</p>
     <div class="cta-btns rev">
-      <a href="#featured" class="btn-primary">Start Hunting →</a>
+      <a href="#featured" class="btn-primary">Side quests →</a>
       <a href="#submit" class="btn-outline">Submit a Spot</a>
     </div>
   </div>
@@ -4587,11 +4605,10 @@
           <div class="foot-col">
             <div class="foot-col-head">Discover</div>
             <ul>
+              <li><a href="index.html">Home</a></li>
               <li><a href="cafes.html">All Cafes</a></li>
               <li><a href="events.html">Upcoming Events</a></li>
-              <li><a href="index.html#featured">This Week's Picks</a></li>
-              <li><a href="cafes.html?filter=gem">Hidden Gems</a></li>
-              <li><a href="events.html?filter=free">Free Events</a></li>
+              <li><a href="suggest.html">Suggest</a></li>
             </ul>
           </div>
 
@@ -4599,8 +4616,6 @@
           <div class="foot-col">
             <div class="foot-col-head">HUNTERS</div>
             <ul>
-              <li><a href="about.html">Our Story</a></li>
-              <li><a href="about.html#standards">Our Standards</a></li>
               <li><a href="suggest.html">Submit a Spot</a></li>
               <li><a href="suggest.html">Become a Hunter</a></li>
               <li><a href="mailto:hello@hunters.in">Contact Us</a></li>
